@@ -1,0 +1,35 @@
+.sidebar {
+    width: 200px;
+    background: #f8f9fa;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    padding: 10px;
+  }
+  
+  .sidebar.closed {
+    width: 50px;
+  }
+  
+  .toggle-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+  }
+  
+  .sidebar-content {
+    padding: 10px;
+  }
+  
+  .dropdown {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
