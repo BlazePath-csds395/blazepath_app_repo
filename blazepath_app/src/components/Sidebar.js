@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import "../styles/Sidebar.css";
 
-const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation }) => {
+const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation, removeRoute }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [selectedFactor, setSelectedFactor] = useState("");
-
   const [startLat, setStartLat] = useState("");
   const [startLng, setStartLng] = useState("");
   const [endLat, setEndLat] = useState("");
@@ -84,6 +83,11 @@ const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation }) => {
             className="input-box"
           />
           <button onClick={handleSetEndLocation}>Set End</button>
+
+          {/* Add Remove Route Button */}
+          <button onClick={removeRoute} className="remove-route-button">
+            Remove Route
+          </button>
         </div>
       )}
     </div>
