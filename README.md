@@ -7,15 +7,18 @@ npm install react-leaflet leaflet
 npm install leaflet@latest
 ```
 
-## issue with current code with leaflet routing machine:
+## Features added as of 3rd March:
 
-```sh
-Even when we change the latitude and longitude the overlay with the directions does not update.
-```
+- Clicking on two places on the map updates the lat and long values
+- Added a remove route button to reset the lat/long boxes and removes the route and overlay
+- Added a red marker for the map locations
+- fixed the previous issue where the overlay with directions was not updating.
 
-## things to look into:
+## TODO:
 
-```sh
-Instead of specifying lat and long, I'm gonna try and have 2 input boxes where people can search for addresses and find the route between
-Also maybe have the ability to click on the map and select spots and find the route.
-```
+- Add 2 input boxes to search for addresses and use that instead of the lat/long boxes
+
+## Helpful links:
+
+Leaflet Routing Machine Documentation:
+https://www.liedman.net/leaflet-routing-machine/
