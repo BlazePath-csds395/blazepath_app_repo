@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/Sidebar.css";
 
 const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation, removeRoute, startLocation, endLocation }) => {
@@ -33,6 +33,34 @@ const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation, removeRoute
     setEndLocation({ lat: parseFloat(endLat), lng: parseFloat(endLng) });
   };
 
+  // Reset input fields when the removeRoute function is called
+  const handleRemoveRoute = () => {
+    removeRoute();
+    setStartLat("");
+    setStartLng("");
+    setEndLat("");
+    setEndLng("");
+  };
+
+  // Sync input values with startLocation and endLocation
+  useEffect(() => {
+    if (startLocation) {
+      setStartLat(startLocation.lat);
+      setStartLng(startLocation.lng);
+    } else {
+      setStartLat("");
+      setStartLng("");
+    }
+
+    if (endLocation) {
+      setEndLat(endLocation.lat);
+      setEndLng(endLocation.lng);
+    } else {
+      setEndLat("");
+      setEndLng("");
+    }
+  }, [startLocation, endLocation]);
+
   return (
     <div className={`sidebar ${isOpen ? "open" : "closed"}`}>
       <button className="toggle-button" onClick={() => setIsOpen(!isOpen)}>
@@ -49,16 +77,38 @@ const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation, removeRoute
           </select>
 
           <h3>Start Location</h3>
-          <input type="number" placeholder="Start Latitude" value={startLat} onChange={(e) => setStartLat(e.target.value)} />
-          <input type="number" placeholder="Start Longitude" value={startLng} onChange={(e) => setStartLng(e.target.value)} />
+          <input
+            type="number"
+            placeholder="Start Latitude"
+            value={startLat}
+            onChange={(e) => setStartLat(e.target.value)}
+          />
+          <input
+            type="number"
+            placeholder="Start Longitude"
+            value={startLng}
+            onChange={(e) => setStartLng(e.target.value)}
+          />
           <button onClick={handleSetStartLocation}>Set Start</button>
 
           <h3>End Location</h3>
-          <input type="number" placeholder="End Latitude" value={endLat} onChange={(e) => setEndLat(e.target.value)} />
-          <input type="number" placeholder="End Longitude" value={endLng} onChange={(e) => setEndLng(e.target.value)} />
+          <input
+            type="number"
+            placeholder="End Latitude"
+            value={endLat}
+            onChange={(e) => setEndLat(e.target.value)}
+          />
+          <input
+            type="number"
+            placeholder="End Longitude"
+            value={endLng}
+            onChange={(e) => setEndLng(e.target.value)}
+          />
           <button onClick={handleSetEndLocation}>Set End</button>
 
-          <button onClick={removeRoute} className="remove-route-button">Remove Route</button>
+          <button onClick={handleRemoveRoute} className="remove-route-button">
+            Remove Route
+          </button>
         </div>
       )}
     </div>

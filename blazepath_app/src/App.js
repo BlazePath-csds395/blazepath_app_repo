@@ -13,14 +13,14 @@ const App = () => {
     if (routeControl) {
       console.log("Removing route...");
       routeControl.getPlan().setWaypoints([]); // Clear waypoints
-      routeControl._map.removeControl(routeControl); // Remove the routing control
+      routeControl._map.removeControl(routeControl); // Remove routing control
       setRouteControl(null);
       console.log("Route removed successfully.");
     } else {
       console.log("No route to remove.");
     }
 
-    // Remove markers
+    // Clear start and end locations (for the map)
     setStartLocation(null);
     setEndLocation(null);
   };

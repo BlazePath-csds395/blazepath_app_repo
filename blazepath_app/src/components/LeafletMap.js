@@ -75,7 +75,7 @@ const ClickHandler = ({ setStartLocation, setEndLocation }) => {
 
 const LeafletMap = ({ start, end, setStartLocation, setEndLocation, setRouteControl }) => {
   return (
-    <MapContainer center={[19.076, 72.8777]} zoom={7} style={{ height: "100vh", width: "100%" }}>
+    <MapContainer center={[37.7749, -122.4194]} zoom={7} style={{ height: "100vh", width: "100%" }}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
