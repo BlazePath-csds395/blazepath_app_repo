@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/Sidebar.css";
 
-const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation, removeRoute }) => {
+const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation, removeRoute, startLocation, endLocation }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [selectedFactor, setSelectedFactor] = useState("");
   const [startLat, setStartLat] = useState("");
@@ -44,50 +44,21 @@ const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation, removeRoute
           <select value={selectedFactor} onChange={handleFactorChange} className="dropdown">
             <option value="" disabled>Select a factor</option>
             {factors.map((factor) => (
-              <option key={factor} value={factor}>
-                {factor}
-              </option>
+              <option key={factor} value={factor}>{factor}</option>
             ))}
           </select>
 
-          <h3>Enter Start Location</h3>
-          <input
-            type="number"
-            placeholder="Start Latitude"
-            value={startLat}
-            onChange={(e) => setStartLat(e.target.value)}
-            className="input-box"
-          />
-          <input
-            type="number"
-            placeholder="Start Longitude"
-            value={startLng}
-            onChange={(e) => setStartLng(e.target.value)}
-            className="input-box"
-          />
+          <h3>Start Location</h3>
+          <input type="number" placeholder="Start Latitude" value={startLat} onChange={(e) => setStartLat(e.target.value)} />
+          <input type="number" placeholder="Start Longitude" value={startLng} onChange={(e) => setStartLng(e.target.value)} />
           <button onClick={handleSetStartLocation}>Set Start</button>
 
-          <h3>Enter End Location</h3>
-          <input
-            type="number"
-            placeholder="End Latitude"
-            value={endLat}
-            onChange={(e) => setEndLat(e.target.value)}
-            className="input-box"
-          />
-          <input
-            type="number"
-            placeholder="End Longitude"
-            value={endLng}
-            onChange={(e) => setEndLng(e.target.value)}
-            className="input-box"
-          />
+          <h3>End Location</h3>
+          <input type="number" placeholder="End Latitude" value={endLat} onChange={(e) => setEndLat(e.target.value)} />
+          <input type="number" placeholder="End Longitude" value={endLng} onChange={(e) => setEndLng(e.target.value)} />
           <button onClick={handleSetEndLocation}>Set End</button>
 
-          {/* Add Remove Route Button */}
-          <button onClick={removeRoute} className="remove-route-button">
-            Remove Route
-          </button>
+          <button onClick={removeRoute} className="remove-route-button">Remove Route</button>
         </div>
       )}
     </div>
