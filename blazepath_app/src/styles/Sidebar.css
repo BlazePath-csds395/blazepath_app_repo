@@ -32,4 +32,14 @@
     border-radius: 5px;
     cursor: pointer;
   }
+
+  .search-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+  }
   
