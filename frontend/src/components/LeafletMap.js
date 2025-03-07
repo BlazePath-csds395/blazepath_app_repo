@@ -1,31 +1,28 @@
-import React from "react";
-import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
+import React, { useEffect, useState } from "react";
+import createMap from "./createMap"; // Import the map function
 import "../styles/LeafletMap.css";
-import geoJsonData from '../data/allFirePerims.json';
 
-const setColor = ({ properties }) => {
-  return { weight: 1, fillColor:"FF6912" };
-};
+const LeafletMap = () => {
+  const [fireData, setFireData] = useState([]);
 
-const LeafletMap = ({ selectedFactor }) => {
-  return (
-    <div className="map-container">
-      <MapContainer center={[34.0365485,-118.2507257]} zoom={10} className="map">
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution="&copy; OpenStreetMap contributors"
-        />
-        <GeoJSON data={geoJsonData} style={setColor}/>
-      </MapContainer>
-      <div className="map-controls">
-        <button className="control-button">📍</button>
-        <button className="control-button">+</button>
-        <button className="control-button">-</button>
-        <button className="control-button">👤</button>
-      </div>
-    </div>
-  );
+  useEffect(() => {
+    fetch(`${process.env.PUBLIC_URL}/data/sample.geojson`)
+      .then(response => response.json())
+      .then(data => {
+        if (data.features) {
+          setFireData(data.features);
+        }
+      })
+      .catch(error => console.error("🔥 Error fetching fire data:", error));
+  }, []);
+
+  useEffect(() => {
+    if (fireData.length > 0) {
+      createMap(fireData); // Call createMap only after data loads
+    }
+  }, [fireData]);
+
+  return <div id="map" className="map-container" />;
 };
 
 export default LeafletMap;

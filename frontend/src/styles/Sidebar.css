@@ -1,35 +1,66 @@
+/* Sidebar container styling */
 .sidebar {
-    width: 200px;
-    background: #f8f9fa;
-    transition: width 0.3s ease;
-    overflow: hidden;
-    padding: 10px;
+  width: 20vw;
+  height: 100vh;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-right: 2px solid #ccc;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+/* Sidebar Title */
+.sidebar h2 {
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Sidebar labels */
+.sidebar label {
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+
+/* Sidebar input fields */
+.sidebar input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Sidebar button */
+.sidebar button {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.sidebar button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive: If screen width is small, make sidebar take less space */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 25vw;
+    font-size: 12px;
   }
-  
-  .sidebar.closed {
-    width: 50px;
-  }
-  
-  .toggle-button {
-    background: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    padding: 8px;
+
+  .sidebar h2 {
     font-size: 16px;
   }
-  
-  .sidebar-content {
-    padding: 10px;
-  }
-  
-  .dropdown {
-    width: 100%;
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
+}

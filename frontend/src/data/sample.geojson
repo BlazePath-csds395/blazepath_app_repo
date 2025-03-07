@@ -1,0 +1,3445 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.09219,
+                    37.3175
+                ]
+            },
+            "properties": {
+                "brightness": 295.9,
+                "intensity": 2.9589999999999996,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93266,
+                    37.45576
+                ]
+            },
+            "properties": {
+                "brightness": 298.7,
+                "intensity": 2.987,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.09343,
+                    37.31704
+                ]
+            },
+            "properties": {
+                "brightness": 301.3,
+                "intensity": 3.013,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.09222,
+                    37.31878
+                ]
+            },
+            "properties": {
+                "brightness": 296.0,
+                "intensity": 2.96,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93143,
+                    37.45645
+                ]
+            },
+            "properties": {
+                "brightness": 305.3,
+                "intensity": 3.053,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93303,
+                    37.45734
+                ]
+            },
+            "properties": {
+                "brightness": 302.8,
+                "intensity": 3.028,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.09075,
+                    37.31814
+                ]
+            },
+            "properties": {
+                "brightness": 302.4,
+                "intensity": 3.0239999999999996,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.67795,
+                    37.18483
+                ]
+            },
+            "properties": {
+                "brightness": 296.7,
+                "intensity": 2.967,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.68083,
+                    37.18447
+                ]
+            },
+            "properties": {
+                "brightness": 298.7,
+                "intensity": 2.987,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93206,
+                    37.453804
+                ]
+            },
+            "properties": {
+                "brightness": 306.39,
+                "intensity": 3.0639,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.68135,
+                    37.18439
+                ]
+            },
+            "properties": {
+                "brightness": 295.3,
+                "intensity": 2.9530000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.08982,
+                    37.31736
+                ]
+            },
+            "properties": {
+                "brightness": 302.0,
+                "intensity": 3.02,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.931557,
+                    37.454643
+                ]
+            },
+            "properties": {
+                "brightness": 308.37,
+                "intensity": 3.0837,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93322,
+                    37.45582
+                ]
+            },
+            "properties": {
+                "brightness": 295.8,
+                "intensity": 2.958,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.09105,
+                    37.31759
+                ]
+            },
+            "properties": {
+                "brightness": 296.6,
+                "intensity": 2.966,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.929657,
+                    37.454247
+                ]
+            },
+            "properties": {
+                "brightness": 301.08,
+                "intensity": 3.0107999999999997,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.90198,
+                    37.21291
+                ]
+            },
+            "properties": {
+                "brightness": 295.2,
+                "intensity": 2.952,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93222,
+                    37.45489
+                ]
+            },
+            "properties": {
+                "brightness": 308.8,
+                "intensity": 3.088,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.68154,
+                    37.18606
+                ]
+            },
+            "properties": {
+                "brightness": 295.3,
+                "intensity": 2.9530000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93106,
+                    37.45472
+                ]
+            },
+            "properties": {
+                "brightness": 298.1,
+                "intensity": 2.9810000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.67877,
+                    37.18626
+                ]
+            },
+            "properties": {
+                "brightness": 296.8,
+                "intensity": 2.968,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.931335,
+                    37.454678
+                ]
+            },
+            "properties": {
+                "brightness": 304.91,
+                "intensity": 3.0491,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.68011,
+                    37.18367
+                ]
+            },
+            "properties": {
+                "brightness": 299.5,
+                "intensity": 2.995,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93273,
+                    37.45561
+                ]
+            },
+            "properties": {
+                "brightness": 295.2,
+                "intensity": 2.952,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.68165,
+                    37.18361
+                ]
+            },
+            "properties": {
+                "brightness": 299.2,
+                "intensity": 2.992,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93013,
+                    37.45583
+                ]
+            },
+            "properties": {
+                "brightness": 299.3,
+                "intensity": 2.9930000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.08989,
+                    37.317001
+                ]
+            },
+            "properties": {
+                "brightness": 299.89,
+                "intensity": 2.9989,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.929863,
+                    37.454102
+                ]
+            },
+            "properties": {
+                "brightness": 300.18,
+                "intensity": 3.0018000000000002,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.677895,
+                    37.183495
+                ]
+            },
+            "properties": {
+                "brightness": 300.98,
+                "intensity": 3.0098000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.932198,
+                    37.455963
+                ]
+            },
+            "properties": {
+                "brightness": 304.94,
+                "intensity": 3.0494,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.679176,
+                    37.18404
+                ]
+            },
+            "properties": {
+                "brightness": 301.44,
+                "intensity": 3.0144,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.67981,
+                    37.18444
+                ]
+            },
+            "properties": {
+                "brightness": 296.2,
+                "intensity": 2.9619999999999997,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93348,
+                    37.45467
+                ]
+            },
+            "properties": {
+                "brightness": 299.8,
+                "intensity": 2.998,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93224,
+                    37.45501
+                ]
+            },
+            "properties": {
+                "brightness": 305.4,
+                "intensity": 3.054,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93068,
+                    37.45547
+                ]
+            },
+            "properties": {
+                "brightness": 305.6,
+                "intensity": 3.056,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93087,
+                    37.453438
+                ]
+            },
+            "properties": {
+                "brightness": 297.1,
+                "intensity": 2.971,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.933441,
+                    37.454727
+                ]
+            },
+            "properties": {
+                "brightness": 298.51,
+                "intensity": 2.9851,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93214,
+                    37.45568
+                ]
+            },
+            "properties": {
+                "brightness": 299.5,
+                "intensity": 2.995,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.90261,
+                    37.21408
+                ]
+            },
+            "properties": {
+                "brightness": 295.6,
+                "intensity": 2.9560000000000004,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.67845,
+                    37.1846
+                ]
+            },
+            "properties": {
+                "brightness": 301.1,
+                "intensity": 3.011,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93101,
+                    37.45636
+                ]
+            },
+            "properties": {
+                "brightness": 306.6,
+                "intensity": 3.0660000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.64178,
+                    37.14733
+                ]
+            },
+            "properties": {
+                "brightness": 330.7,
+                "intensity": 3.307,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.67952,
+                    37.18606
+                ]
+            },
+            "properties": {
+                "brightness": 306.5,
+                "intensity": 3.065,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93336,
+                    37.45795
+                ]
+            },
+            "properties": {
+                "brightness": 301.4,
+                "intensity": 3.014,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93336,
+                    37.4581
+                ]
+            },
+            "properties": {
+                "brightness": 298.3,
+                "intensity": 2.983,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.64363,
+                    37.14628
+                ]
+            },
+            "properties": {
+                "brightness": 330.1,
+                "intensity": 3.301,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.680038,
+                    37.183826
+                ]
+            },
+            "properties": {
+                "brightness": 300.94,
+                "intensity": 3.0094,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93194,
+                    37.45366
+                ]
+            },
+            "properties": {
+                "brightness": 298.1,
+                "intensity": 2.9810000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.643112,
+                    37.149693
+                ]
+            },
+            "properties": {
+                "brightness": 325.8,
+                "intensity": 3.258,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93049,
+                    37.45425
+                ]
+            },
+            "properties": {
+                "brightness": 308.9,
+                "intensity": 3.089,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.9318,
+                    37.45524
+                ]
+            },
+            "properties": {
+                "brightness": 303.5,
+                "intensity": 3.035,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93272,
+                    37.45534
+                ]
+            },
+            "properties": {
+                "brightness": 299.6,
+                "intensity": 2.9960000000000004,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.679108,
+                    37.185589
+                ]
+            },
+            "properties": {
+                "brightness": 299.89,
+                "intensity": 2.9989,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.930382,
+                    37.455654
+                ]
+            },
+            "properties": {
+                "brightness": 310.55,
+                "intensity": 3.1055,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.678757,
+                    37.184551
+                ]
+            },
+            "properties": {
+                "brightness": 299.47,
+                "intensity": 2.9947000000000004,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93024,
+                    37.45597
+                ]
+            },
+            "properties": {
+                "brightness": 302.5,
+                "intensity": 3.025,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.67992,
+                    37.1837
+                ]
+            },
+            "properties": {
+                "brightness": 298.2,
+                "intensity": 2.9819999999999998,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.85339,
+                    37.07
+                ]
+            },
+            "properties": {
+                "brightness": 341.1,
+                "intensity": 3.411,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.84913,
+                    37.07066
+                ]
+            },
+            "properties": {
+                "brightness": 328.5,
+                "intensity": 3.285,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93545,
+                    37.45483
+                ]
+            },
+            "properties": {
+                "brightness": 295.9,
+                "intensity": 2.9589999999999996,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.678947,
+                    37.183876
+                ]
+            },
+            "properties": {
+                "brightness": 296.05,
+                "intensity": 2.9605,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.6345,
+                    37.1575
+                ]
+            },
+            "properties": {
+                "brightness": 301.1,
+                "intensity": 3.011,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.932152,
+                    37.454285
+                ]
+            },
+            "properties": {
+                "brightness": 303.76,
+                "intensity": 3.0376,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.0907,
+                    37.31754
+                ]
+            },
+            "properties": {
+                "brightness": 309.5,
+                "intensity": 3.095,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.08859,
+                    37.31833
+                ]
+            },
+            "properties": {
+                "brightness": 295.9,
+                "intensity": 2.9589999999999996,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93371,
+                    37.45484
+                ]
+            },
+            "properties": {
+                "brightness": 307.1,
+                "intensity": 3.071,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.68076,
+                    37.18488
+                ]
+            },
+            "properties": {
+                "brightness": 296.5,
+                "intensity": 2.965,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.931305,
+                    37.455154
+                ]
+            },
+            "properties": {
+                "brightness": 306.0,
+                "intensity": 3.06,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.09156,
+                    37.317955
+                ]
+            },
+            "properties": {
+                "brightness": 300.05,
+                "intensity": 3.0005,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.08945,
+                    37.31674
+                ]
+            },
+            "properties": {
+                "brightness": 295.8,
+                "intensity": 2.958,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.932922,
+                    37.45636
+                ]
+            },
+            "properties": {
+                "brightness": 306.19,
+                "intensity": 3.0619,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93211,
+                    37.45478
+                ]
+            },
+            "properties": {
+                "brightness": 296.9,
+                "intensity": 2.969,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.09168,
+                    37.31688
+                ]
+            },
+            "properties": {
+                "brightness": 296.8,
+                "intensity": 2.968,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.15611,
+                    37.11703
+                ]
+            },
+            "properties": {
+                "brightness": 332.2,
+                "intensity": 3.322,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.681053,
+                    37.185589
+                ]
+            },
+            "properties": {
+                "brightness": 300.37,
+                "intensity": 3.0037000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.731743,
+                    36.976696
+                ]
+            },
+            "properties": {
+                "brightness": 327.38,
+                "intensity": 3.2738,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.09106,
+                    37.31808
+                ]
+            },
+            "properties": {
+                "brightness": 295.2,
+                "intensity": 2.952,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.9309,
+                    37.45574
+                ]
+            },
+            "properties": {
+                "brightness": 301.5,
+                "intensity": 3.015,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93204,
+                    37.45657
+                ]
+            },
+            "properties": {
+                "brightness": 296.4,
+                "intensity": 2.964,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.088783,
+                    37.316666
+                ]
+            },
+            "properties": {
+                "brightness": 299.02,
+                "intensity": 2.9901999999999997,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.679489,
+                    37.183701
+                ]
+            },
+            "properties": {
+                "brightness": 301.04,
+                "intensity": 3.0104,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.09212,
+                    37.31589
+                ]
+            },
+            "properties": {
+                "brightness": 295.6,
+                "intensity": 2.9560000000000004,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.9294,
+                    37.45596
+                ]
+            },
+            "properties": {
+                "brightness": 295.0,
+                "intensity": 2.95,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.680092,
+                    37.183632
+                ]
+            },
+            "properties": {
+                "brightness": 299.52,
+                "intensity": 2.9951999999999996,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.9313,
+                    37.45382
+                ]
+            },
+            "properties": {
+                "brightness": 297.7,
+                "intensity": 2.977,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.09212,
+                    37.31761
+                ]
+            },
+            "properties": {
+                "brightness": 296.3,
+                "intensity": 2.963,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.6785,
+                    37.18389
+                ]
+            },
+            "properties": {
+                "brightness": 300.6,
+                "intensity": 3.0060000000000002,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.09161,
+                    37.31672
+                ]
+            },
+            "properties": {
+                "brightness": 302.7,
+                "intensity": 3.0269999999999997,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93173,
+                    37.45472
+                ]
+            },
+            "properties": {
+                "brightness": 308.0,
+                "intensity": 3.08,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.90064,
+                    37.21379
+                ]
+            },
+            "properties": {
+                "brightness": 296.5,
+                "intensity": 2.965,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93102,
+                    37.45476
+                ]
+            },
+            "properties": {
+                "brightness": 306.2,
+                "intensity": 3.062,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.09004,
+                    37.31621
+                ]
+            },
+            "properties": {
+                "brightness": 300.2,
+                "intensity": 3.002,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.68085,
+                    37.18353
+                ]
+            },
+            "properties": {
+                "brightness": 295.1,
+                "intensity": 2.951,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93042,
+                    37.45541
+                ]
+            },
+            "properties": {
+                "brightness": 298.1,
+                "intensity": 2.9810000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.088333,
+                    37.315983
+                ]
+            },
+            "properties": {
+                "brightness": 295.6,
+                "intensity": 2.9560000000000004,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.931091,
+                    37.454872
+                ]
+            },
+            "properties": {
+                "brightness": 304.79,
+                "intensity": 3.0479000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.090477,
+                    37.317436
+                ]
+            },
+            "properties": {
+                "brightness": 306.56,
+                "intensity": 3.0656,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.680336,
+                    37.185429
+                ]
+            },
+            "properties": {
+                "brightness": 304.65,
+                "intensity": 3.0465,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.677933,
+                    37.182819
+                ]
+            },
+            "properties": {
+                "brightness": 299.09,
+                "intensity": 2.9909,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.679092,
+                    37.183067
+                ]
+            },
+            "properties": {
+                "brightness": 296.37,
+                "intensity": 2.9637000000000002,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.08923,
+                    37.31519
+                ]
+            },
+            "properties": {
+                "brightness": 295.8,
+                "intensity": 2.958,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93002,
+                    37.45346
+                ]
+            },
+            "properties": {
+                "brightness": 300.4,
+                "intensity": 3.0039999999999996,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93438,
+                    37.45642
+                ]
+            },
+            "properties": {
+                "brightness": 295.3,
+                "intensity": 2.9530000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.08877,
+                    37.31781
+                ]
+            },
+            "properties": {
+                "brightness": 300.0,
+                "intensity": 3.0,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93365,
+                    37.45649
+                ]
+            },
+            "properties": {
+                "brightness": 305.9,
+                "intensity": 3.0589999999999997,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93079,
+                    37.45345
+                ]
+            },
+            "properties": {
+                "brightness": 295.8,
+                "intensity": 2.958,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.68109,
+                    37.18482
+                ]
+            },
+            "properties": {
+                "brightness": 304.3,
+                "intensity": 3.043,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93334,
+                    37.45367
+                ]
+            },
+            "properties": {
+                "brightness": 296.1,
+                "intensity": 2.9610000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.090767,
+                    37.315651
+                ]
+            },
+            "properties": {
+                "brightness": 298.6,
+                "intensity": 2.986,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.67838,
+                    37.18346
+                ]
+            },
+            "properties": {
+                "brightness": 299.9,
+                "intensity": 2.9989999999999997,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.09168,
+                    37.31745
+                ]
+            },
+            "properties": {
+                "brightness": 298.8,
+                "intensity": 2.988,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93177,
+                    37.456017
+                ]
+            },
+            "properties": {
+                "brightness": 296.62,
+                "intensity": 2.9662,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.687439,
+                    37.173637
+                ]
+            },
+            "properties": {
+                "brightness": 304.24,
+                "intensity": 3.0424,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.08923,
+                    37.3168
+                ]
+            },
+            "properties": {
+                "brightness": 300.4,
+                "intensity": 3.0039999999999996,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93165,
+                    37.45658
+                ]
+            },
+            "properties": {
+                "brightness": 300.1,
+                "intensity": 3.0010000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.92999,
+                    37.45448
+                ]
+            },
+            "properties": {
+                "brightness": 301.0,
+                "intensity": 3.01,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.50642,
+                    37.00097
+                ]
+            },
+            "properties": {
+                "brightness": 340.6,
+                "intensity": 3.406,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.09288,
+                    37.315456
+                ]
+            },
+            "properties": {
+                "brightness": 297.52,
+                "intensity": 2.9751999999999996,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.089836,
+                    37.316238
+                ]
+            },
+            "properties": {
+                "brightness": 295.96,
+                "intensity": 2.9596,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.67715,
+                    37.18367
+                ]
+            },
+            "properties": {
+                "brightness": 295.1,
+                "intensity": 2.951,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93098,
+                    37.45388
+                ]
+            },
+            "properties": {
+                "brightness": 299.3,
+                "intensity": 2.9930000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93215,
+                    37.45353
+                ]
+            },
+            "properties": {
+                "brightness": 298.1,
+                "intensity": 2.9810000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.090942,
+                    37.316914
+                ]
+            },
+            "properties": {
+                "brightness": 297.36,
+                "intensity": 2.9736000000000002,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.677498,
+                    37.182919
+                ]
+            },
+            "properties": {
+                "brightness": 296.39,
+                "intensity": 2.9638999999999998,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.930923,
+                    37.455475
+                ]
+            },
+            "properties": {
+                "brightness": 305.59,
+                "intensity": 3.0559,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.677605,
+                    37.184288
+                ]
+            },
+            "properties": {
+                "brightness": 304.2,
+                "intensity": 3.042,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93388,
+                    37.45554
+                ]
+            },
+            "properties": {
+                "brightness": 299.2,
+                "intensity": 2.992,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.67819,
+                    37.18567
+                ]
+            },
+            "properties": {
+                "brightness": 295.8,
+                "intensity": 2.958,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93343,
+                    37.45529
+                ]
+            },
+            "properties": {
+                "brightness": 304.7,
+                "intensity": 3.0469999999999997,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.08902,
+                    37.31836
+                ]
+            },
+            "properties": {
+                "brightness": 296.1,
+                "intensity": 2.9610000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93336,
+                    37.45573
+                ]
+            },
+            "properties": {
+                "brightness": 300.5,
+                "intensity": 3.005,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.092079,
+                    37.318268
+                ]
+            },
+            "properties": {
+                "brightness": 296.21,
+                "intensity": 2.9621,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.677933,
+                    37.182537
+                ]
+            },
+            "properties": {
+                "brightness": 304.0,
+                "intensity": 3.04,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.900787,
+                    37.212536
+                ]
+            },
+            "properties": {
+                "brightness": 296.71,
+                "intensity": 2.9671,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.09164,
+                    37.3162
+                ]
+            },
+            "properties": {
+                "brightness": 295.1,
+                "intensity": 2.951,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93311,
+                    37.45698
+                ]
+            },
+            "properties": {
+                "brightness": 299.2,
+                "intensity": 2.992,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.680313,
+                    37.184399
+                ]
+            },
+            "properties": {
+                "brightness": 298.79,
+                "intensity": 2.9879000000000002,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93417,
+                    37.45424
+                ]
+            },
+            "properties": {
+                "brightness": 295.4,
+                "intensity": 2.9539999999999997,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93279,
+                    37.45747
+                ]
+            },
+            "properties": {
+                "brightness": 302.5,
+                "intensity": 3.025,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93322,
+                    37.45549
+                ]
+            },
+            "properties": {
+                "brightness": 308.5,
+                "intensity": 3.085,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.67911,
+                    37.18436
+                ]
+            },
+            "properties": {
+                "brightness": 306.5,
+                "intensity": 3.065,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.09058,
+                    37.31712
+                ]
+            },
+            "properties": {
+                "brightness": 305.6,
+                "intensity": 3.056,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.67783,
+                    37.18505
+                ]
+            },
+            "properties": {
+                "brightness": 298.2,
+                "intensity": 2.9819999999999998,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93151,
+                    37.45619
+                ]
+            },
+            "properties": {
+                "brightness": 306.8,
+                "intensity": 3.068,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.96277,
+                    36.97925
+                ]
+            },
+            "properties": {
+                "brightness": 305.8,
+                "intensity": 3.0580000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93343,
+                    37.4546
+                ]
+            },
+            "properties": {
+                "brightness": 298.4,
+                "intensity": 2.984,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.08928,
+                    37.31868
+                ]
+            },
+            "properties": {
+                "brightness": 299.3,
+                "intensity": 2.9930000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.68079,
+                    37.18333
+                ]
+            },
+            "properties": {
+                "brightness": 295.6,
+                "intensity": 2.9560000000000004,
+                "date_time": "",
+                "forest_fire": 1
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93355,
+                    37.45605
+                ]
+            },
+            "properties": {
+                "brightness": 297.3,
+                "intensity": 2.9730000000000003,
+                "date_time": "",
+                "forest_fire": 1
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.67931,
+                    37.18508
+                ]
+            },
+            "properties": {
+                "brightness": 296.1,
+                "intensity": 2.9610000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.09407,
+                    37.31545
+                ]
+            },
+            "properties": {
+                "brightness": 300.0,
+                "intensity": 3.0,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.67973,
+                    37.18678
+                ]
+            },
+            "properties": {
+                "brightness": 296.0,
+                "intensity": 2.96,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.083221,
+                    37.427917
+                ]
+            },
+            "properties": {
+                "brightness": 295.57,
+                "intensity": 2.9556999999999998,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.09146,
+                    37.31728
+                ]
+            },
+            "properties": {
+                "brightness": 299.9,
+                "intensity": 2.9989999999999997,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93064,
+                    37.45597
+                ]
+            },
+            "properties": {
+                "brightness": 305.0,
+                "intensity": 3.05,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.67883,
+                    37.18303
+                ]
+            },
+            "properties": {
+                "brightness": 301.4,
+                "intensity": 3.014,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93232,
+                    37.45517
+                ]
+            },
+            "properties": {
+                "brightness": 308.3,
+                "intensity": 3.083,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.08921,
+                    37.31673
+                ]
+            },
+            "properties": {
+                "brightness": 305.0,
+                "intensity": 3.05,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.67798,
+                    37.18385
+                ]
+            },
+            "properties": {
+                "brightness": 307.2,
+                "intensity": 3.072,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.09097,
+                    37.31749
+                ]
+            },
+            "properties": {
+                "brightness": 302.2,
+                "intensity": 3.022,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93091,
+                    37.45665
+                ]
+            },
+            "properties": {
+                "brightness": 307.0,
+                "intensity": 3.07,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.9814,
+                    37.007
+                ]
+            },
+            "properties": {
+                "brightness": 304.5,
+                "intensity": 3.045,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.677551,
+                    37.182903
+                ]
+            },
+            "properties": {
+                "brightness": 296.14,
+                "intensity": 2.9614,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.677933,
+                    37.183277
+                ]
+            },
+            "properties": {
+                "brightness": 295.51,
+                "intensity": 2.9551,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93356,
+                    37.45411
+                ]
+            },
+            "properties": {
+                "brightness": 298.9,
+                "intensity": 2.989,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93204,
+                    37.4538
+                ]
+            },
+            "properties": {
+                "brightness": 298.1,
+                "intensity": 2.9810000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.680588,
+                    37.184799
+                ]
+            },
+            "properties": {
+                "brightness": 305.54,
+                "intensity": 3.0554,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.9331,
+                    37.45676
+                ]
+            },
+            "properties": {
+                "brightness": 300.1,
+                "intensity": 3.0010000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.17496,
+                    37.41345
+                ]
+            },
+            "properties": {
+                "brightness": 334.6,
+                "intensity": 3.346,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.68158,
+                    37.182743
+                ]
+            },
+            "properties": {
+                "brightness": 296.87,
+                "intensity": 2.9687,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.90013,
+                    37.21368
+                ]
+            },
+            "properties": {
+                "brightness": 295.0,
+                "intensity": 2.95,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.9328,
+                    37.45529
+                ]
+            },
+            "properties": {
+                "brightness": 309.2,
+                "intensity": 3.092,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.08253,
+                    37.42991
+                ]
+            },
+            "properties": {
+                "brightness": 295.1,
+                "intensity": 2.951,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93289,
+                    37.45557
+                ]
+            },
+            "properties": {
+                "brightness": 298.8,
+                "intensity": 2.988,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93127,
+                    37.45822
+                ]
+            },
+            "properties": {
+                "brightness": 300.6,
+                "intensity": 3.0060000000000002,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.677399,
+                    37.184319
+                ]
+            },
+            "properties": {
+                "brightness": 305.36,
+                "intensity": 3.0536000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.902199,
+                    37.213608
+                ]
+            },
+            "properties": {
+                "brightness": 297.64,
+                "intensity": 2.9764,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.932114,
+                    37.454933
+                ]
+            },
+            "properties": {
+                "brightness": 306.05,
+                "intensity": 3.0605,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.908562,
+                    37.339428
+                ]
+            },
+            "properties": {
+                "brightness": 338.18,
+                "intensity": 3.3818,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93098,
+                    37.45478
+                ]
+            },
+            "properties": {
+                "brightness": 302.1,
+                "intensity": 3.0210000000000004,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.6806,
+                    37.18603
+                ]
+            },
+            "properties": {
+                "brightness": 297.2,
+                "intensity": 2.972,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.89944,
+                    37.2135
+                ]
+            },
+            "properties": {
+                "brightness": 298.7,
+                "intensity": 2.987,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.67709,
+                    37.18346
+                ]
+            },
+            "properties": {
+                "brightness": 298.5,
+                "intensity": 2.985,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.9306,
+                    37.45447
+                ]
+            },
+            "properties": {
+                "brightness": 308.0,
+                "intensity": 3.08,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.67738,
+                    37.1842
+                ]
+            },
+            "properties": {
+                "brightness": 304.7,
+                "intensity": 3.0469999999999997,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93117,
+                    37.45682
+                ]
+            },
+            "properties": {
+                "brightness": 308.6,
+                "intensity": 3.0860000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.67907,
+                    37.18306
+                ]
+            },
+            "properties": {
+                "brightness": 295.99,
+                "intensity": 2.9599,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.931732,
+                    37.45438
+                ]
+            },
+            "properties": {
+                "brightness": 300.46,
+                "intensity": 3.0046,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.931183,
+                    37.456158
+                ]
+            },
+            "properties": {
+                "brightness": 297.24,
+                "intensity": 2.9724,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.90038,
+                    37.21286
+                ]
+            },
+            "properties": {
+                "brightness": 295.7,
+                "intensity": 2.957,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.67982,
+                    37.18415
+                ]
+            },
+            "properties": {
+                "brightness": 301.3,
+                "intensity": 3.013,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93295,
+                    37.4559
+                ]
+            },
+            "properties": {
+                "brightness": 309.2,
+                "intensity": 3.092,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.68023,
+                    37.18357
+                ]
+            },
+            "properties": {
+                "brightness": 301.2,
+                "intensity": 3.012,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.525803,
+                    37.03722
+                ]
+            },
+            "properties": {
+                "brightness": 335.45,
+                "intensity": 3.3545,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93076,
+                    37.45512
+                ]
+            },
+            "properties": {
+                "brightness": 306.2,
+                "intensity": 3.062,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.68052,
+                    37.1857
+                ]
+            },
+            "properties": {
+                "brightness": 296.8,
+                "intensity": 2.968,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93116,
+                    37.45385
+                ]
+            },
+            "properties": {
+                "brightness": 297.2,
+                "intensity": 2.972,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.677414,
+                    37.185604
+                ]
+            },
+            "properties": {
+                "brightness": 295.68,
+                "intensity": 2.9568,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.67836,
+                    37.182205
+                ]
+            },
+            "properties": {
+                "brightness": 296.56,
+                "intensity": 2.9656000000000002,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.679749,
+                    37.183983
+                ]
+            },
+            "properties": {
+                "brightness": 303.67,
+                "intensity": 3.0367,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.89975,
+                    37.212357
+                ]
+            },
+            "properties": {
+                "brightness": 296.45,
+                "intensity": 2.9644999999999997,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.930992,
+                    37.454597
+                ]
+            },
+            "properties": {
+                "brightness": 301.16,
+                "intensity": 3.0116,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93149,
+                    37.45497
+                ]
+            },
+            "properties": {
+                "brightness": 304.6,
+                "intensity": 3.0460000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.678574,
+                    37.184364
+                ]
+            },
+            "properties": {
+                "brightness": 297.27,
+                "intensity": 2.9726999999999997,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.680748,
+                    37.184227
+                ]
+            },
+            "properties": {
+                "brightness": 299.04,
+                "intensity": 2.9904,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93201,
+                    37.45491
+                ]
+            },
+            "properties": {
+                "brightness": 308.3,
+                "intensity": 3.083,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.67777,
+                    37.18368
+                ]
+            },
+            "properties": {
+                "brightness": 306.9,
+                "intensity": 3.069,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.68164,
+                    37.18401
+                ]
+            },
+            "properties": {
+                "brightness": 297.6,
+                "intensity": 2.9760000000000004,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93431,
+                    37.45516
+                ]
+            },
+            "properties": {
+                "brightness": 301.5,
+                "intensity": 3.015,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.927589,
+                    37.455147
+                ]
+            },
+            "properties": {
+                "brightness": 367.0,
+                "intensity": 3.67,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.92688,
+                    37.451317
+                ]
+            },
+            "properties": {
+                "brightness": 367.0,
+                "intensity": 3.67,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93037,
+                    37.45352
+                ]
+            },
+            "properties": {
+                "brightness": 300.7,
+                "intensity": 3.0069999999999997,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.678566,
+                    37.184723
+                ]
+            },
+            "properties": {
+                "brightness": 302.73,
+                "intensity": 3.0273000000000003,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.679916,
+                    37.184822
+                ]
+            },
+            "properties": {
+                "brightness": 302.51,
+                "intensity": 3.0251,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.93356,
+                    37.45476
+                ]
+            },
+            "properties": {
+                "brightness": 300.8,
+                "intensity": 3.008,
+                "date_time": "",
+                "forest_fire": 0
+            }
+        }
+    ]
+}
