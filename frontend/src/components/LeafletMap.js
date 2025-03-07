@@ -7,7 +7,7 @@ import "../styles/LeafletMap.css";
 import currentPerims from '../data/firePerims.json';
 import allPerims from '../data/allFirePerims.json';
 
-
+import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 
 // This function as an asynch or await function does not seem to function properly.
 // It always results in an error -> seems to return a different type of value than expected, even though values themselves are fine.
@@ -113,14 +113,12 @@ const LeafletMap = ({ start, end, setStartLocation, setEndLocation, setRouteCont
 
       <ClickHandler setStartLocation={setStartLocation} setEndLocation={setEndLocation} />
 
-      
-      <LayerGroup>
-        {/* Display custom icons instead of default markers */}
-        {start && <Marker position={[start.lat, start.lng]} icon={startIcon} />}
-        {end && <Marker position={[end.lat, end.lng]} icon={endIcon} />}
+      {/* Display custom icons instead of default markers */}
+      {start && <Marker position={[start.lat, start.lng]} icon={startIcon} />}
+      {end && <Marker position={[end.lat, end.lng]} icon={endIcon} />}
 
-        {start && end && <Routing start={start} end={end} onRouteCreated={setRouteControl} />}
-      </LayerGroup>
+      {start && end && <Routing start={start} end={end} onRouteCreated={setRouteControl} />}
+      
       {/* display GeoJson representation of the firePerims*/}
       <GeoJSON data={currentPerims} style={{ weight: 1, fillColor:"FF6912", color:"FF0000" }}/>
       <LayersControl position="topleft" collapsed={false}>
