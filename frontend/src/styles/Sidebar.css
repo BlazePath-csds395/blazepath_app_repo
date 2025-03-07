@@ -19,6 +19,17 @@
     padding: 8px;
     font-size: 16px;
   }
+
+  .input-button {
+    background: #B3EBF2;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    padding: 4px;
+    font-size: 16px;
+    margin-top: 1em;
+  }
   
   .sidebar-content {
     padding: 10px;
@@ -35,4 +46,15 @@
 
   .rounded-button {
     border-radius: 10px;
+  }
+
+  .latlong-input {
+    width: 100%;
+    border: 1px solid #555;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .latlong-input:focus {
+    border: 1px solid #555;
   }

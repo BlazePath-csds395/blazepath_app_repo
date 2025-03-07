@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Sidebar.css";
 
+
 const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation, removeRoute, startLocation, endLocation }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [selectedFactor, setSelectedFactor] = useState("");
@@ -68,6 +69,7 @@ const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation, removeRoute
       </button>
       {isOpen && (
         <div className="sidebar-content">
+
           <h3>Select Factor</h3>
           <select value={selectedFactor} onChange={handleFactorChange} className="dropdown">
             <option value="" disabled>Select a factor</option>
@@ -77,36 +79,37 @@ const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation, removeRoute
           </select>
 
           <h3>Start Location</h3>
-          <input
+          <input className='latlong-input'
             type="number"
             placeholder="Start Latitude"
-            value={startLat}
+            value={startLat!="" ? Math.round(startLat*10000)/10000 : ""}
             onChange={(e) => setStartLat(e.target.value)}
           />
-          <input
+          <input className='latlong-input'
             type="number"
             placeholder="Start Longitude"
-            value={startLng}
+            value={startLng!="" ? Math.round(startLng*10000)/10000 : ""}
             onChange={(e) => setStartLng(e.target.value)}
           />
-          <button onClick={handleSetStartLocation}>Set Start</button>
+          <br/>
+          <button onClick={handleSetStartLocation} className="input-button rounded-button">Set Start</button>
 
           <h3>End Location</h3>
-          <input
+          <input className='latlong-input'
             type="number"
             placeholder="End Latitude"
-            value={endLat}
+            value={endLat!="" ? Math.round(endLat*10000)/10000 : ""}
             onChange={(e) => setEndLat(e.target.value)}
           />
-          <input
+          <input className='latlong-input'
             type="number"
             placeholder="End Longitude"
-            value={endLng}
+            value={endLng!="" ? Math.round(endLng*10000)/10000 : ""}
             onChange={(e) => setEndLng(e.target.value)}
           />
-          <button onClick={handleSetEndLocation}>Set End</button>
-
-          <button onClick={handleRemoveRoute} className="remove-route-button">
+          <button onClick={handleSetEndLocation} className="input-button rounded-button">Set End</button>
+          <h3/>
+          <button onClick={handleRemoveRoute} className="toggle-button rounded-button">
             Remove Route
           </button>
         </div>

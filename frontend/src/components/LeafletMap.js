@@ -102,7 +102,6 @@ function onEachFeature(feature, layer) {
 }
 
 
-
 const LeafletMap = ({ start, end, setStartLocation, setEndLocation, setRouteControl }) => {
   return (
     <MapContainer center={[33.9506059,-118.1142122]} zoom={9.5} style={{ height: "100vh", width: "100%" }}>
@@ -120,13 +119,12 @@ const LeafletMap = ({ start, end, setStartLocation, setEndLocation, setRouteCont
       {start && end && <Routing start={start} end={end} onRouteCreated={setRouteControl} />}
       
       {/* display GeoJson representation of the firePerims*/}
-      <GeoJSON data={currentPerims} style={{ weight: 1, fillColor:"FF6912", color:"FF0000" }}/>
       <LayersControl position="topleft" collapsed={false}>
         <LayersControl.Overlay name="Current Fires">
-          <GeoJSON data={currentPerims} style={{ weight: 1, fillColor:"FF6912", color:"FF0000" }} onEachFeature={onEachFeature}/>
+          <GeoJSON data={currentPerims} style={{ weight: 1, fillColor:"FF0000", color:"FF0000", fillOpacity: 0.8 }} onEachFeature={onEachFeature}/>
         </LayersControl.Overlay>
-        <LayersControl.Overlay name="All 2025 Fires">
-          <GeoJSON data={allPerims} style={{ fillColor:"FF69F2", color:"FF0000" }} onEachFeature={onEachFeature}/>
+        <LayersControl.Overlay checked name="All 2025 Fires">
+          <GeoJSON data={allPerims} style={{ fillColor:"FF69F2", color:"FF0000", fillOpacity: 0.6  }} onEachFeature={onEachFeature}/>
         </LayersControl.Overlay>
       </LayersControl>
       
