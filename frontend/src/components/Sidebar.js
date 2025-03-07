@@ -63,7 +63,7 @@ const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation, removeRoute
 
   return (
     <div className={`sidebar ${isOpen ? "open" : "closed"}`}>
-      <button className="toggle-button" onClick={() => setIsOpen(!isOpen)}>
+      <button className="toggle-button rounded-button" onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? "Collapse" : "→"}
       </button>
       {isOpen && (

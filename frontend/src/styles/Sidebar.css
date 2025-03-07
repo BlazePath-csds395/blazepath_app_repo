@@ -32,4 +32,7 @@
     border-radius: 5px;
     cursor: pointer;
   }
-  
+
+  .rounded-button {
+    border-radius: 10px;
+  }
