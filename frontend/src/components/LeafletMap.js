@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { MapContainer, TileLayer, Marker, useMap, useMapEvents, GeoJSON, LayersControl } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, useMap, useMapEvents, GeoJSON, LayersControl, LayerGroup } from "react-leaflet";
 import "leaflet-routing-machine";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -91,6 +91,18 @@ const ClickHandler = ({ setStartLocation, setEndLocation }) => {
   return null;
 };
 
+
+function onEachFeature(feature, layer) {
+  //When loading each GeoJSON for the fire perimeters
+  if (feature.properties && feature.properties.poly_IncidentName) { //check to see if name is present
+    layer.bindPopup(feature.properties.poly_IncidentName); //if so, add the name as a popup
+  }
+
+  //Chose popup instead of Tooltip because it looks somewhat better. Also makes it so that when fires are visible, you cannot route to there.
+}
+
+
+
 const LeafletMap = ({ start, end, setStartLocation, setEndLocation, setRouteControl }) => {
   return (
     <MapContainer center={[33.9506059,-118.1142122]} zoom={9.5} style={{ height: "100vh", width: "100%" }}>
@@ -101,20 +113,22 @@ const LeafletMap = ({ start, end, setStartLocation, setEndLocation, setRouteCont
 
       <ClickHandler setStartLocation={setStartLocation} setEndLocation={setEndLocation} />
 
-      {/* Display custom icons instead of default markers */}
-      {start && <Marker position={[start.lat, start.lng]} icon={startIcon} />}
-      {end && <Marker position={[end.lat, end.lng]} icon={endIcon} />}
+      
+      <LayerGroup>
+        {/* Display custom icons instead of default markers */}
+        {start && <Marker position={[start.lat, start.lng]} icon={startIcon} />}
+        {end && <Marker position={[end.lat, end.lng]} icon={endIcon} />}
 
-      {start && end && <Routing start={start} end={end} onRouteCreated={setRouteControl} />}
-
+        {start && end && <Routing start={start} end={end} onRouteCreated={setRouteControl} />}
+      </LayerGroup>
       {/* display GeoJson representation of the firePerims*/}
-
-      <LayersControl position="topleft">
+      <GeoJSON data={currentPerims} style={{ weight: 1, fillColor:"FF6912", color:"FF0000" }}/>
+      <LayersControl position="topleft" collapsed={false}>
         <LayersControl.Overlay name="Current Fires">
-          <GeoJSON data={currentPerims} style={{ weight: 1, fillColor:"FF6912" }}/>
+          <GeoJSON data={currentPerims} style={{ weight: 1, fillColor:"FF6912", color:"FF0000" }} onEachFeature={onEachFeature}/>
         </LayersControl.Overlay>
         <LayersControl.Overlay name="All 2025 Fires">
-          <GeoJSON data={allPerims} style={{ weight: 1, fillColor:"FF69F2" }}/>
+          <GeoJSON data={allPerims} style={{ fillColor:"FF69F2", color:"FF0000" }} onEachFeature={onEachFeature}/>
         </LayersControl.Overlay>
       </LayersControl>
       
