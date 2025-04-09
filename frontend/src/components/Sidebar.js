@@ -9,13 +9,39 @@ const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation, removeRoute
   const [startLng, setStartLng] = useState("");
   const [endLat, setEndLat] = useState("");
   const [endLng, setEndLng] = useState("");
+  const [fromAddress, setFromAddress] = useState("");
+  const [toAddress, setToAddress] = useState("");
 
   const factors = ["AQI", "CO2 Level", "Traffic", "Weather"];
 
-  const handleFactorChange = (event) => {
-    const factor = event.target.value;
-    setSelectedFactor(factor);
-    onSelectFactor(factor);
+  const fetchCoordinates = async (address) => {
+    try {
+      const response = await fetch(
+        `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`
+      );
+      const data = await response.json();
+      if (data.length > 0) {
+        return { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon) };
+      } else {
+        alert(`Address not found: ${address}`);
+        return null;
+      }
+    } catch (error) {
+      console.error("Error fetching coordinates:", error);
+      return null;
+    }
+  };
+
+  const handleFindRoute = async () => {
+    if (!fromAddress || !toAddress) return alert("Enter both addresses!");
+
+    const fromCoords = await fetchCoordinates(fromAddress);
+    const toCoords = await fetchCoordinates(toAddress);
+
+    if (fromCoords && toCoords) {
+      setStartLocation({ lat: fromCoords.lat, lng: fromCoords.lng });
+      setEndLocation({ lat: toCoords.lat, lng: toCoords.lng });
+    }
   };
 
   const handleSetStartLocation = () => {
@@ -41,6 +67,8 @@ const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation, removeRoute
     setStartLng("");
     setEndLat("");
     setEndLng("");
+    setFromAddress("");
+    setToAddress("");
   };
 
   // Sync input values with startLocation and endLocation
@@ -61,6 +89,15 @@ const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation, removeRoute
       setEndLng("");
     }
   }, [startLocation, endLocation]);
+
+
+
+
+  const handleFactorChange = (event) => {
+    const factor = event.target.value;
+    setSelectedFactor(factor);
+    onSelectFactor(factor);
+  };
 
   return (
     <div className={`sidebar ${isOpen ? "open" : "closed"}`}>
@@ -108,11 +145,34 @@ const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation, removeRoute
             onChange={(e) => setEndLng(e.target.value)}
           />
           <button onClick={handleSetEndLocation} className="input-button rounded-button">Set End</button>
+          <h3>Enter Start & Destination</h3>
+          <input
+            type="text"
+            value={fromAddress}
+            onChange={(e) => setFromAddress(e.target.value)}
+            placeholder="From (Start Address)"
+            className="address-input"
+          />
+          <input
+            type="text"
+            value={toAddress}
+            onChange={(e) => setToAddress(e.target.value)}
+            placeholder="To (Destination Address)"
+            className="address-input"
+          />
+          <button onClick={handleFindRoute} className="input-button rounded-button">
+            Find Route
+          </button>
+
+
+
+
           <h3/>
           <button onClick={handleRemoveRoute} className="toggle-button rounded-button">
             Remove Route
           </button>
         </div>
+        
       )}
     </div>
   );

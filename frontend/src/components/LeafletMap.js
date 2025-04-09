@@ -53,7 +53,7 @@ const Routing = ({ start, end, onRouteCreated }) => {
     const control = L.Routing.control({
       waypoints: [L.latLng(start.lat, start.lng), L.latLng(end.lat, end.lng)],
       createMarker: () => null, // Prevent default Leaflet markers (Looks like a black box)
-      routeWhileDragging: true,
+      routeWhileDragging: false, //TODO: throws an error if true.
       lineOptions: { styles: [{ color: "#007bff", weight: 4 }] }, // Blue route line
       collapsible: true,
     }).addTo(map);
