@@ -44,22 +44,6 @@ const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation, removeRoute
     }
   };
 
-  const handleSetStartLocation = () => {
-    if (!startLat || !startLng) {
-      alert("Please enter valid latitude and longitude for Start Location.");
-      return;
-    }
-    setStartLocation({ lat: parseFloat(startLat), lng: parseFloat(startLng) });
-  };
-
-  const handleSetEndLocation = () => {
-    if (!endLat || !endLng) {
-      alert("Please enter valid latitude and longitude for End Location.");
-      return;
-    }
-    setEndLocation({ lat: parseFloat(endLat), lng: parseFloat(endLng) });
-  };
-
   // Reset input fields when the removeRoute function is called
   const handleRemoveRoute = () => {
     removeRoute();
@@ -115,36 +99,7 @@ const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation, removeRoute
             ))}
           </select>
 
-          <h3>Start Location</h3>
-          <input className='latlong-input'
-            type="number"
-            placeholder="Start Latitude"
-            value={startLat!="" ? Math.round(startLat*10000)/10000 : ""}
-            onChange={(e) => setStartLat(e.target.value)}
-          />
-          <input className='latlong-input'
-            type="number"
-            placeholder="Start Longitude"
-            value={startLng!="" ? Math.round(startLng*10000)/10000 : ""}
-            onChange={(e) => setStartLng(e.target.value)}
-          />
-          <br/>
-          <button onClick={handleSetStartLocation} className="input-button rounded-button">Set Start</button>
-
-          <h3>End Location</h3>
-          <input className='latlong-input'
-            type="number"
-            placeholder="End Latitude"
-            value={endLat!="" ? Math.round(endLat*10000)/10000 : ""}
-            onChange={(e) => setEndLat(e.target.value)}
-          />
-          <input className='latlong-input'
-            type="number"
-            placeholder="End Longitude"
-            value={endLng!="" ? Math.round(endLng*10000)/10000 : ""}
-            onChange={(e) => setEndLng(e.target.value)}
-          />
-          <button onClick={handleSetEndLocation} className="input-button rounded-button">Set End</button>
+          
           <h3>Enter Start & Destination</h3>
           <input
             type="text"

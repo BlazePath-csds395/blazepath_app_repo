@@ -23,18 +23,11 @@ import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 // }
 
 // Load the custom icons from the public folder
-const startIcon = L.icon({
+const Icon = L.icon({
   iconUrl: "/marker_map_icon.png", 
   iconSize: [40, 40], // Adjust size of the icon
   iconAnchor: [20, 40], // Anchor position
   popupAnchor: [0, -40], // Adjust popup positioning
-});
-
-const endIcon = L.icon({
-  iconUrl: "/marker_map_icon.png", 
-  iconSize: [40, 40],
-  iconAnchor: [20, 40],
-  popupAnchor: [0, -40],
 });
 
 const Routing = ({ start, end, onRouteCreated }) => {
@@ -52,8 +45,19 @@ const Routing = ({ start, end, onRouteCreated }) => {
     console.log("Adding route...");
     const control = L.Routing.control({
       waypoints: [L.latLng(start.lat, start.lng), L.latLng(end.lat, end.lng)],
-      createMarker: () => null, // Prevent default Leaflet markers (Looks like a black box)
-      routeWhileDragging: false, //TODO: throws an error if true.
+      createMarker: 
+      function (i, waypoint, n) {
+        const marker = L.marker(waypoint.latLng, {
+          draggable: true,
+          bounceOnAddOptions: {
+            duration: 1000,
+            height: 800
+          },
+          icon: Icon
+        });
+        return marker;
+      },
+      routeWhileDragging: true, 
       lineOptions: { styles: [{ color: "#007bff", weight: 4 }] }, // Blue route line
       collapsible: true,
     }).addTo(map);
@@ -111,10 +115,6 @@ const LeafletMap = ({ start, end, setStartLocation, setEndLocation, setRouteCont
       />
 
       <ClickHandler setStartLocation={setStartLocation} setEndLocation={setEndLocation} />
-
-      {/* Display custom icons instead of default markers */}
-      {start && <Marker position={[start.lat, start.lng]} icon={startIcon} />}
-      {end && <Marker position={[end.lat, end.lng]} icon={endIcon} />}
 
       {start && end && <Routing start={start} end={end} onRouteCreated={setRouteControl} />}
       
