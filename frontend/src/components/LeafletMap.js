@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { MapContainer, TileLayer, Marker, useMap, useMapEvents, GeoJSON, LayersControl, LayerGroup } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  useMap,
+  useMapEvents,
+  GeoJSON,
+  LayersControl,
+  LayerGroup,
+} from "react-leaflet";
 import "leaflet-routing-machine";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "../styles/LeafletMap.css";
-import currentPerims from '../data/firePerims.json';
-import allPerims from '../data/allFirePerims.json';
+import currentPerims from "../data/firePerims.json";
+import allPerims from "../data/allFirePerims.json";
+import "lrm-graphhopper";
 
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 
@@ -24,14 +34,14 @@ import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 
 // Load the custom icons from the public folder
 const startIcon = L.icon({
-  iconUrl: "/marker_map_icon.png", 
+  iconUrl: "/marker_map_icon.png",
   iconSize: [40, 40], // Adjust size of the icon
   iconAnchor: [20, 40], // Anchor position
   popupAnchor: [0, -40], // Adjust popup positioning
 });
 
 const endIcon = L.icon({
-  iconUrl: "/marker_map_icon.png", 
+  iconUrl: "/marker_map_icon.png",
   iconSize: [40, 40],
   iconAnchor: [20, 40],
   popupAnchor: [0, -40],
@@ -50,11 +60,55 @@ const Routing = ({ start, end, onRouteCreated }) => {
     }
 
     console.log("Adding route...");
+    // const control = L.Routing.control({
+    //   waypoints: [L.latLng(start.lat, start.lng), L.latLng(end.lat, end.lng)],
+    //   createMarker: () => null, // Prevent default Leaflet markers (Looks like a black box)
+    //   routeWhileDragging: false, //TODO: throws an error if true.
+    //   lineOptions: { styles: [{ color: "#007bff", weight: 4 }] }, // Blue route line
+    //   collapsible: true,
+    // }).addTo(map);
+
     const control = L.Routing.control({
       waypoints: [L.latLng(start.lat, start.lng), L.latLng(end.lat, end.lng)],
-      createMarker: () => null, // Prevent default Leaflet markers (Looks like a black box)
-      routeWhileDragging: false, //TODO: throws an error if true.
-      lineOptions: { styles: [{ color: "#007bff", weight: 4 }] }, // Blue route line
+      router: new L.Routing.GraphHopper(
+        "bddd81ed-db57-44c3-9407-72f1f8dd69c6",
+        {
+          urlParameters: {
+            vehicle: "car",
+            locale: "en",
+            // Example avoid polygon — this can be dynamic
+            custom_model: JSON.stringify({
+              areas: {
+                avoidFires: {
+                  type: "Feature",
+                  properties: {},
+                  geometry: {
+                    type: "Polygon",
+                    coordinates: [
+                      [
+                        [-118.7, 34.02], // Southwest (near Malibu coast)
+                        [-118.7, 34.1], // Northwest (above Topanga)
+                        [-118.5, 34.1], // Northeast (near Encino hills)
+                        [-118.5, 34.02], // Southeast (near Pacific Palisades)
+                        [-118.7, 34.02], // Back to Southwest
+                      ],
+                    ],
+                  },
+                },
+              },
+              priority: [
+                {
+                  if: "in_avoidFires",
+                  multiply_by: "0",
+                },
+              ],
+            }),
+          },
+        }
+      ),
+      createMarker: () => null,
+      routeWhileDragging: false,
+      lineOptions: { styles: [{ color: "#007bff", weight: 4 }] },
       collapsible: true,
     }).addTo(map);
 
@@ -91,43 +145,120 @@ const ClickHandler = ({ setStartLocation, setEndLocation }) => {
   return null;
 };
 
-
 function onEachFeature(feature, layer) {
   //When loading each GeoJSON for the fire perimeters
-  if (feature.properties && feature.properties.poly_IncidentName) { //check to see if name is present
+  if (feature.properties && feature.properties.poly_IncidentName) {
+    //check to see if name is present
     layer.bindPopup(feature.properties.poly_IncidentName); //if so, add the name as a popup
   }
 
   //Chose popup instead of Tooltip because it looks somewhat better. Also makes it so that when fires are visible, you cannot route to there.
 }
 
+// Overlay for highlighting the area to avoid
+const avoidAreaGeoJSON = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [
+          [
+            [-118.7, 34.02],
+            [-118.7, 34.1],
+            [-118.5, 34.1],
+            [-118.5, 34.02],
+            [-118.7, 34.02],
+          ],
+        ],
+      },
+      properties: {
+        name: "Avoid Area (Topanga/Malibu)",
+      },
+    },
+  ],
+};
 
-const LeafletMap = ({ start, end, setStartLocation, setEndLocation, setRouteControl }) => {
+const LeafletMap = ({
+  start,
+  end,
+  setStartLocation,
+  setEndLocation,
+  setRouteControl,
+}) => {
   return (
-    <MapContainer center={[33.9506059,-118.1142122]} zoom={9.5} style={{ height: "100vh", width: "100%" }}>
+    <MapContainer
+      center={[33.9506059, -118.1142122]}
+      zoom={9.5}
+      style={{ height: "100vh", width: "100%" }}
+    >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
 
-      <ClickHandler setStartLocation={setStartLocation} setEndLocation={setEndLocation} />
+      <ClickHandler
+        setStartLocation={setStartLocation}
+        setEndLocation={setEndLocation}
+      />
 
       {/* Display custom icons instead of default markers */}
       {start && <Marker position={[start.lat, start.lng]} icon={startIcon} />}
       {end && <Marker position={[end.lat, end.lng]} icon={endIcon} />}
 
-      {start && end && <Routing start={start} end={end} onRouteCreated={setRouteControl} />}
-      
+      {start && end && (
+        <Routing start={start} end={end} onRouteCreated={setRouteControl} />
+      )}
+
       {/* display GeoJson representation of the firePerims*/}
-      <LayersControl position="topleft" collapsed={false}>
+      {/* <LayersControl position="topleft" collapsed={false}>
         <LayersControl.Overlay name="Current Fires">
           <GeoJSON data={currentPerims} style={{ weight: 1, fillColor:"FF0000", color:"FF0000", fillOpacity: 0.8 }} onEachFeature={onEachFeature}/>
         </LayersControl.Overlay>
         <LayersControl.Overlay checked name="All 2025 Fires">
           <GeoJSON data={allPerims} style={{ fillColor:"FF69F2", color:"FF0000", fillOpacity: 0.6  }} onEachFeature={onEachFeature}/>
         </LayersControl.Overlay>
+      </LayersControl> */}
+
+      <LayersControl position="topleft" collapsed={false}>
+        <LayersControl.Overlay name="Current Fires">
+          <GeoJSON
+            data={currentPerims}
+            style={{
+              weight: 1,
+              fillColor: "FF0000",
+              color: "FF0000",
+              fillOpacity: 0.8,
+            }}
+            onEachFeature={onEachFeature}
+          />
+        </LayersControl.Overlay>
+
+        <LayersControl.Overlay checked name="All 2025 Fires">
+          <GeoJSON
+            data={allPerims}
+            style={{ fillColor: "FF69F2", color: "FF0000", fillOpacity: 0.6 }}
+            onEachFeature={onEachFeature}
+          />
+        </LayersControl.Overlay>
+
+        <LayersControl.Overlay checked name="Avoid Area (Topanga)">
+          <GeoJSON
+            data={avoidAreaGeoJSON}
+            style={{
+              color: "#FF0000",
+              fillColor: "#FF6666",
+              fillOpacity: 0.4,
+              weight: 2,
+              dashArray: "5, 5",
+            }}
+            onEachFeature={(feature, layer) => {
+              layer.bindPopup(feature.properties.name || "Avoid Area");
+            }}
+          />
+        </LayersControl.Overlay>
       </LayersControl>
-      
     </MapContainer>
   );
 };
