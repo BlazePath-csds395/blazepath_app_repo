@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Sidebar.css";
+import ExpandingInput from "./ExpandingInput";
 
 
 const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation, removeRoute, startLocation, endLocation }) => {
@@ -118,7 +119,6 @@ const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation, removeRoute
           <button onClick={handleFindRoute} className="input-button rounded-button">
             Find Route
           </button>
-
 
 
 
