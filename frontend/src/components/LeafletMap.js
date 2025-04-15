@@ -15,7 +15,9 @@ import "leaflet/dist/leaflet.css";
 import "../styles/LeafletMap.css";
 import currentPerims from "../data/firePerims.json";
 import allPerims from "../data/allFirePerims.json";
+import model from "../data/block.json";
 import "lrm-graphhopper";
+import createGraphHopper from "./customRouter.js";
 
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 
@@ -50,7 +52,35 @@ const endIcon = L.icon({
 const Routing = ({ start, end, onRouteCreated }) => {
   const map = useMap();
   const [routingControl, setRoutingControl] = useState(null);
+  const avoidPolygon = [
+    [-118.7, 34.02],
+    [-118.7, 34.1],
+    [-118.5, 34.1],
+    [-118.5, 34.02],
+    [-118.7, 34.02],
+  ];
 
+  const requestBody = {
+    profile: "car",
+    elevation: false,
+    instructions: true,
+    locale: "en_US",
+    points_encoded: false,
+    custom_model: {
+      priority: [{ if: "in_avoid", multiply_by: 0 }],
+      areas: {
+        avoid: {
+          type: "Feature",
+          properties: {},
+          geometry: {
+            type: "Polygon",
+            coordinates: [avoidPolygon],
+          },
+        },
+      },
+    },
+    "ch.disable": true,
+  };
   useEffect(() => {
     if (!map || !start || !end) return;
 
@@ -68,44 +98,21 @@ const Routing = ({ start, end, onRouteCreated }) => {
     //   collapsible: true,
     // }).addTo(map);
 
-    const control = L.Routing.control({
+    var control = L.Routing.control({
       waypoints: [L.latLng(start.lat, start.lng), L.latLng(end.lat, end.lng)],
-      router: new L.Routing.GraphHopper(
-        "bddd81ed-db57-44c3-9407-72f1f8dd69c6",
-        {
-          urlParameters: {
-            vehicle: "car",
-            locale: "en",
-            // Example avoid polygon — this can be dynamic
-            custom_model: JSON.stringify({
-              areas: {
-                avoidFires: {
-                  type: "Feature",
-                  properties: {},
-                  geometry: {
-                    type: "Polygon",
-                    coordinates: [
-                      [
-                        [-118.7, 34.02], // Southwest (near Malibu coast)
-                        [-118.7, 34.1], // Northwest (above Topanga)
-                        [-118.5, 34.1], // Northeast (near Encino hills)
-                        [-118.5, 34.02], // Southeast (near Pacific Palisades)
-                        [-118.7, 34.02], // Back to Southwest
-                      ],
-                    ],
-                  },
-                },
-              },
-              priority: [
-                {
-                  if: "in_avoidFires",
-                  multiply_by: "0",
-                },
-              ],
-            }),
-          },
+      router: createGraphHopper(process.env.REACT_APP_MAP_API_KEY, {
+        serviceUrl: 'https://graphhopper.com/api/1/route',
+        avoidPolygons: {
+          stop: [
+            [-118.7, 34.02],
+            [-118.7, 34.1],
+            [-118.5, 34.1],
+            [-118.5, 34.02],
+            [-118.7, 34.02]
+          ]
         }
-      ),
+      }),
+      
       createMarker: () => null,
       routeWhileDragging: false,
       lineOptions: { styles: [{ color: "#007bff", weight: 4 }] },
