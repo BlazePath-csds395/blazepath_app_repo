@@ -35,7 +35,7 @@ const App = () => {
         startLocation={startLocation}
         endLocation={endLocation}
       />
-      <div>
+      
         <LeafletMap
           selectedFactor={selectedFactor}
           start={startLocation}
@@ -44,7 +44,7 @@ const App = () => {
           setEndLocation={setEndLocation}
           setRouteControl={setRouteControl}
         />
-      </div>
+      
       
     </div>
   );
