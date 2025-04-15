@@ -20,7 +20,7 @@ import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 //   } catch (error) {
 //     console.error(error);
 //   }
-// }
+// } 
 
 // Load the custom icons from the public folder
 const Icon = L.icon({
