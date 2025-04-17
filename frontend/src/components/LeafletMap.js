@@ -1,45 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   MapContainer,
   TileLayer,
   Marker,
+  Popup,
   useMap,
   useMapEvents,
   GeoJSON,
   LayersControl,
-  LayerGroup,
 } from "react-leaflet";
-import "leaflet-routing-machine";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import "leaflet-routing-machine";
+import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
+import "lrm-graphhopper";
 import "../styles/LeafletMap.css";
+
 import currentPerims from "../data/firePerims.json";
 import allPerims from "../data/allFirePerims.json";
-import model from "../data/block.json";
-import "lrm-graphhopper";
 import createGraphHopper from "./customRouter.js";
 
-import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
-
-// This function as an asynch or await function does not seem to function properly.
-// It always results in an error -> seems to return a different type of value than expected, even though values themselves are fine.
-
-// async function getFireData() {
-//   try {
-//     const response = await fetch('https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Interagency_Perimeters_Current/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson');
-//     const responseJson = await response.json();
-//     console.log(responseJson)
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
-// Load the custom icons from the public folder
 const startIcon = L.icon({
   iconUrl: "/marker_map_icon.png",
-  iconSize: [40, 40], // Adjust size of the icon
-  iconAnchor: [20, 40], // Anchor position
-  popupAnchor: [0, -40], // Adjust popup positioning
+  iconSize: [40, 40],
+  iconAnchor: [20, 40],
+  popupAnchor: [0, -40],
 });
 
 const endIcon = L.icon({
@@ -49,70 +34,64 @@ const endIcon = L.icon({
   popupAnchor: [0, -40],
 });
 
+const avoidPolygon = [
+  [-118.7, 34.02],
+  [-118.7, 34.1],
+  [-118.5, 34.1],
+  [-118.5, 34.02],
+  [-118.7, 34.02],
+];
+
+const avoidAreaGeoJSON = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [avoidPolygon],
+      },
+      properties: {
+        name: "Avoid Area (Topanga/Malibu)",
+      },
+    },
+  ],
+};
+
+function getDistance(lat1, lon1, lat2, lon2) {
+  const R = 6371e3;
+  const toRad = (deg) => deg * (Math.PI / 180);
+  const φ1 = toRad(lat1),
+    φ2 = toRad(lat2);
+  const Δφ = toRad(lat2 - lat1),
+    Δλ = toRad(lon2 - lon1);
+
+  const a =
+    Math.sin(Δφ / 2) ** 2 + Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) ** 2;
+
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+}
+
 const Routing = ({ start, end, onRouteCreated }) => {
   const map = useMap();
   const [routingControl, setRoutingControl] = useState(null);
-  const avoidPolygon = [
-    [-118.7, 34.02],
-    [-118.7, 34.1],
-    [-118.5, 34.1],
-    [-118.5, 34.02],
-    [-118.7, 34.02],
-  ];
 
-  const requestBody = {
-    profile: "car",
-    elevation: false,
-    instructions: true,
-    locale: "en_US",
-    points_encoded: false,
-    custom_model: {
-      priority: [{ if: "in_avoid", multiply_by: 0 }],
-      areas: {
-        avoid: {
-          type: "Feature",
-          properties: {},
-          geometry: {
-            type: "Polygon",
-            coordinates: [avoidPolygon],
-          },
-        },
-      },
-    },
-    "ch.disable": true,
-  };
   useEffect(() => {
     if (!map || !start || !end) return;
 
-    // Remove existing route if it exists
     if (routingControl) {
       map.removeControl(routingControl);
     }
 
-    console.log("Adding route...");
-    // const control = L.Routing.control({
-    //   waypoints: [L.latLng(start.lat, start.lng), L.latLng(end.lat, end.lng)],
-    //   createMarker: () => null, // Prevent default Leaflet markers (Looks like a black box)
-    //   routeWhileDragging: false, //TODO: throws an error if true.
-    //   lineOptions: { styles: [{ color: "#007bff", weight: 4 }] }, // Blue route line
-    //   collapsible: true,
-    // }).addTo(map);
-
-    var control = L.Routing.control({
+    const control = L.Routing.control({
       waypoints: [L.latLng(start.lat, start.lng), L.latLng(end.lat, end.lng)],
       router: createGraphHopper(process.env.REACT_APP_MAP_API_KEY, {
-        serviceUrl: 'https://graphhopper.com/api/1/route',
+        serviceUrl: "https://graphhopper.com/api/1/route",
         avoidPolygons: {
-          stop: [
-            [-118.7, 34.02],
-            [-118.7, 34.1],
-            [-118.5, 34.1],
-            [-118.5, 34.02],
-            [-118.7, 34.02]
-          ]
-        }
+          stop: avoidPolygon,
+        },
       }),
-      
       createMarker: () => null,
       routeWhileDragging: false,
       lineOptions: { styles: [{ color: "#007bff", weight: 4 }] },
@@ -126,7 +105,6 @@ const Routing = ({ start, end, onRouteCreated }) => {
       if (control) {
         control.getPlan().setWaypoints([]);
         map.removeControl(control);
-        console.log("Route removed on unmount.");
       }
     };
   }, [map, start, end, onRouteCreated]);
@@ -134,16 +112,47 @@ const Routing = ({ start, end, onRouteCreated }) => {
   return null;
 };
 
-const ClickHandler = ({ setStartLocation, setEndLocation }) => {
+const ClickHandler = ({
+  enableAqiClick,
+  aqiData,
+  setClickedPoint,
+  setStartLocation,
+  setEndLocation,
+}) => {
   const [clickCount, setClickCount] = useState(0);
 
   useMapEvents({
     click(e) {
+      const { lat, lng } = e.latlng;
+
+      if (enableAqiClick) {
+        let minDist = Infinity,
+          nearest = null;
+
+        for (const row of aqiData) {
+          const d = getDistance(lat, lng, row.Latitude, row.Longitude);
+          if (d < minDist) {
+            minDist = d;
+            nearest = row;
+          }
+        }
+
+        if (nearest) {
+          setClickedPoint({
+            lat: nearest.Latitude,
+            lng: nearest.Longitude,
+            info: nearest,
+          });
+        }
+        return;
+      }
+
+      // Normal routing click
       if (clickCount === 0) {
-        setStartLocation({ lat: e.latlng.lat, lng: e.latlng.lng });
+        setStartLocation({ lat, lng });
         setClickCount(1);
-      } else if (clickCount === 1) {
-        setEndLocation({ lat: e.latlng.lat, lng: e.latlng.lng });
+      } else {
+        setEndLocation({ lat, lng });
         setClickCount(0);
       }
     },
@@ -153,39 +162,10 @@ const ClickHandler = ({ setStartLocation, setEndLocation }) => {
 };
 
 function onEachFeature(feature, layer) {
-  //When loading each GeoJSON for the fire perimeters
   if (feature.properties && feature.properties.poly_IncidentName) {
-    //check to see if name is present
-    layer.bindPopup(feature.properties.poly_IncidentName); //if so, add the name as a popup
+    layer.bindPopup(feature.properties.poly_IncidentName);
   }
-
-  //Chose popup instead of Tooltip because it looks somewhat better. Also makes it so that when fires are visible, you cannot route to there.
 }
-
-// Overlay for highlighting the area to avoid
-const avoidAreaGeoJSON = {
-  type: "FeatureCollection",
-  features: [
-    {
-      type: "Feature",
-      geometry: {
-        type: "Polygon",
-        coordinates: [
-          [
-            [-118.7, 34.02],
-            [-118.7, 34.1],
-            [-118.5, 34.1],
-            [-118.5, 34.02],
-            [-118.7, 34.02],
-          ],
-        ],
-      },
-      properties: {
-        name: "Avoid Area (Topanga/Malibu)",
-      },
-    },
-  ],
-};
 
 const LeafletMap = ({
   start,
@@ -193,50 +173,85 @@ const LeafletMap = ({
   setStartLocation,
   setEndLocation,
   setRouteControl,
+  enableAqiClick,
+  aqiData,
 }) => {
+  const [clickedPoint, setClickedPoint] = useState(null);
+  const markerRef = useRef(null);
+
+  useEffect(() => {
+    if (!enableAqiClick) {
+      setClickedPoint(null);
+    }
+  }, [enableAqiClick]);
+
+  useEffect(() => {
+    if (markerRef.current) {
+      markerRef.current.openPopup();
+    }
+  }, [clickedPoint]);
+
   return (
     <MapContainer
-      center={[33.9506059, -118.1142122]}
+      center={[33.9506, -118.1142]}
       zoom={9.5}
       style={{ height: "100vh", width: "100%" }}
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        attribution="&copy; OpenStreetMap contributors"
       />
 
       <ClickHandler
+        enableAqiClick={enableAqiClick}
+        aqiData={aqiData}
+        setClickedPoint={setClickedPoint}
         setStartLocation={setStartLocation}
         setEndLocation={setEndLocation}
       />
 
-      {/* Display custom icons instead of default markers */}
       {start && <Marker position={[start.lat, start.lng]} icon={startIcon} />}
       {end && <Marker position={[end.lat, end.lng]} icon={endIcon} />}
+
+      {clickedPoint && (
+        <Marker
+          position={[clickedPoint.lat, clickedPoint.lng]}
+          icon={startIcon}
+          ref={markerRef}
+        >
+          <Popup>
+            <strong>AQI Info</strong>
+            <br />
+            AQI: {clickedPoint.info.Calculated_AQI} (
+            {clickedPoint.info.AQI_Category})<br />
+            Main Pollutant: {clickedPoint.info.Main_Pollutant}
+            <br />
+            PM2.5: {clickedPoint.info["PM2.5"]}
+            <br />
+            CO: {clickedPoint.info.CO}
+            <br />
+            NO2: {clickedPoint.info.NO2}
+            <br />
+            O3: {clickedPoint.info.O3}
+            <br />
+            SO2: {clickedPoint.info.SO2}
+          </Popup>
+        </Marker>
+      )}
 
       {start && end && (
         <Routing start={start} end={end} onRouteCreated={setRouteControl} />
       )}
-
-      {/* display GeoJson representation of the firePerims*/}
-      {/* <LayersControl position="topleft" collapsed={false}>
-        <LayersControl.Overlay name="Current Fires">
-          <GeoJSON data={currentPerims} style={{ weight: 1, fillColor:"FF0000", color:"FF0000", fillOpacity: 0.8 }} onEachFeature={onEachFeature}/>
-        </LayersControl.Overlay>
-        <LayersControl.Overlay checked name="All 2025 Fires">
-          <GeoJSON data={allPerims} style={{ fillColor:"FF69F2", color:"FF0000", fillOpacity: 0.6  }} onEachFeature={onEachFeature}/>
-        </LayersControl.Overlay>
-      </LayersControl> */}
 
       <LayersControl position="topleft" collapsed={false}>
         <LayersControl.Overlay name="Current Fires">
           <GeoJSON
             data={currentPerims}
             style={{
+              fillColor: "#222222",
+              color: "#111111",
+              fillOpacity: 0.6,
               weight: 1,
-              fillColor: "FF0000",
-              color: "FF0000",
-              fillOpacity: 0.8,
             }}
             onEachFeature={onEachFeature}
           />
@@ -245,7 +260,12 @@ const LeafletMap = ({
         <LayersControl.Overlay checked name="All 2025 Fires">
           <GeoJSON
             data={allPerims}
-            style={{ fillColor: "FF69F2", color: "FF0000", fillOpacity: 0.6 }}
+            style={{
+              fillColor: "#1a1a1a",
+              color: "#0f0f0f",
+              fillOpacity: 0.75,
+              weight: 1,
+            }}
             onEachFeature={onEachFeature}
           />
         </LayersControl.Overlay>

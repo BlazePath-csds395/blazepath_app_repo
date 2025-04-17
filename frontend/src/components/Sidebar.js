@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Sidebar.css";
 
-
-const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation, removeRoute, startLocation, endLocation }) => {
+const Sidebar = ({
+  onSelectFactor,
+  setStartLocation,
+  setEndLocation,
+  removeRoute,
+  startLocation,
+  endLocation,
+  enableAqiClick,
+  setEnableAqiClick,
+}) => {
   const [isOpen, setIsOpen] = useState(true);
   const [selectedFactor, setSelectedFactor] = useState("");
   const [startLat, setStartLat] = useState("");
@@ -17,7 +25,9 @@ const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation, removeRoute
   const fetchCoordinates = async (address) => {
     try {
       const response = await fetch(
-        `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`
+        `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
+          address
+        )}`
       );
       const data = await response.json();
       if (data.length > 0) {
@@ -90,9 +100,6 @@ const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation, removeRoute
     }
   }, [startLocation, endLocation]);
 
-
-
-
   const handleFactorChange = (event) => {
     const factor = event.target.value;
     setSelectedFactor(factor);
@@ -101,50 +108,74 @@ const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation, removeRoute
 
   return (
     <div className={`sidebar ${isOpen ? "open" : "closed"}`}>
-      <button className="toggle-button rounded-button" onClick={() => setIsOpen(!isOpen)}>
+      <button
+        className="toggle-button rounded-button"
+        onClick={() => setIsOpen(!isOpen)}
+      >
         {isOpen ? "Collapse" : "→"}
       </button>
       {isOpen && (
         <div className="sidebar-content">
-
           <h3>Select Factor</h3>
-          <select value={selectedFactor} onChange={handleFactorChange} className="dropdown">
-            <option value="" disabled>Select a factor</option>
+          <select
+            value={selectedFactor}
+            onChange={handleFactorChange}
+            className="dropdown"
+          >
+            <option value="" disabled>
+              Select a factor
+            </option>
             {factors.map((factor) => (
-              <option key={factor} value={factor}>{factor}</option>
+              <option key={factor} value={factor}>
+                {factor}
+              </option>
             ))}
           </select>
 
           <h3>Start Location</h3>
-          <input className='latlong-input'
+          <input
+            className="latlong-input"
             type="number"
             placeholder="Start Latitude"
-            value={startLat!="" ? Math.round(startLat*10000)/10000 : ""}
+            value={startLat != "" ? Math.round(startLat * 10000) / 10000 : ""}
             onChange={(e) => setStartLat(e.target.value)}
           />
-          <input className='latlong-input'
+          <input
+            className="latlong-input"
             type="number"
             placeholder="Start Longitude"
-            value={startLng!="" ? Math.round(startLng*10000)/10000 : ""}
+            value={startLng != "" ? Math.round(startLng * 10000) / 10000 : ""}
             onChange={(e) => setStartLng(e.target.value)}
           />
-          <br/>
-          <button onClick={handleSetStartLocation} className="input-button rounded-button">Set Start</button>
+          <br />
+          <button
+            onClick={handleSetStartLocation}
+            className="input-button rounded-button"
+          >
+            Set Start
+          </button>
 
           <h3>End Location</h3>
-          <input className='latlong-input'
+          <input
+            className="latlong-input"
             type="number"
             placeholder="End Latitude"
-            value={endLat!="" ? Math.round(endLat*10000)/10000 : ""}
+            value={endLat != "" ? Math.round(endLat * 10000) / 10000 : ""}
             onChange={(e) => setEndLat(e.target.value)}
           />
-          <input className='latlong-input'
+          <input
+            className="latlong-input"
             type="number"
             placeholder="End Longitude"
-            value={endLng!="" ? Math.round(endLng*10000)/10000 : ""}
+            value={endLng != "" ? Math.round(endLng * 10000) / 10000 : ""}
             onChange={(e) => setEndLng(e.target.value)}
           />
-          <button onClick={handleSetEndLocation} className="input-button rounded-button">Set End</button>
+          <button
+            onClick={handleSetEndLocation}
+            className="input-button rounded-button"
+          >
+            Set End
+          </button>
           <h3>Enter Start & Destination</h3>
           <input
             type="text"
@@ -160,19 +191,35 @@ const Sidebar = ({ onSelectFactor, setStartLocation, setEndLocation, removeRoute
             placeholder="To (Destination Address)"
             className="address-input"
           />
-          <button onClick={handleFindRoute} className="input-button rounded-button">
+          <button
+            onClick={handleFindRoute}
+            className="input-button rounded-button"
+          >
             Find Route
           </button>
 
-
-
-
-          <h3/>
-          <button onClick={handleRemoveRoute} className="toggle-button rounded-button">
+          <h3 />
+          <button
+            onClick={handleRemoveRoute}
+            className="toggle-button rounded-button"
+          >
             Remove Route
           </button>
+
+          {/* ✅ AQI Click Mode Toggle */}
+          <div style={{ marginTop: "1.5em" }}>
+            <label
+              style={{ display: "flex", alignItems: "center", gap: "0.5em" }}
+            >
+              <input
+                type="checkbox"
+                checked={enableAqiClick}
+                onChange={(e) => setEnableAqiClick(e.target.checked)}
+              />
+              <span>Enable AQI Info Click Mode</span>
+            </label>
+          </div>
         </div>
-        
       )}
     </div>
   );

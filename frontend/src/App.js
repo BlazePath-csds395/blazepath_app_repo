@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Papa from "papaparse";
 import LeafletMap from "./components/LeafletMap";
 import Sidebar from "./components/Sidebar";
+import aqiCsv from "./data/aqi_dataset.csv"; // ✅ your file
 import "./styles/App.css";
 
 const App = () => {
@@ -8,22 +10,37 @@ const App = () => {
   const [startLocation, setStartLocation] = useState(null);
   const [endLocation, setEndLocation] = useState(null);
   const [routeControl, setRouteControl] = useState(null);
+  const [enableAqiClick, setEnableAqiClick] = useState(false);
+  const [aqiData, setAqiData] = useState([]);
 
   const removeRoute = () => {
     if (routeControl) {
-      console.log("Removing route...");
-      routeControl.getPlan().setWaypoints([]); // Clear waypoints
-      routeControl._map.removeControl(routeControl); // Remove routing control
+      routeControl.getPlan().setWaypoints([]);
+      routeControl._map.removeControl(routeControl);
       setRouteControl(null);
-      console.log("Route removed successfully.");
-    } else {
-      console.log("No route to remove.");
     }
-
-    // Clear start and end locations (for the map)
     setStartLocation(null);
     setEndLocation(null);
   };
+
+  useEffect(() => {
+    fetch(aqiCsv)
+      .then((res) => res.text())
+      .then((csvText) => {
+        const parsed = Papa.parse(csvText, {
+          header: true,
+          dynamicTyping: true,
+        });
+        const filtered = parsed.data.filter(
+          (row) =>
+            row.Latitude &&
+            row.Longitude &&
+            row.Calculated_AQI &&
+            (row.Is_Land === true || row.Is_Land === "True")
+        );
+        setAqiData(filtered);
+      });
+  }, []);
 
   return (
     <div className="app">
@@ -34,6 +51,8 @@ const App = () => {
         removeRoute={removeRoute}
         startLocation={startLocation}
         endLocation={endLocation}
+        enableAqiClick={enableAqiClick}
+        setEnableAqiClick={setEnableAqiClick}
       />
       <LeafletMap
         selectedFactor={selectedFactor}
@@ -42,6 +61,8 @@ const App = () => {
         setStartLocation={setStartLocation}
         setEndLocation={setEndLocation}
         setRouteControl={setRouteControl}
+        enableAqiClick={enableAqiClick}
+        aqiData={aqiData}
       />
     </div>
   );
