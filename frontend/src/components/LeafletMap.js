@@ -22,7 +22,6 @@ import allPerims_exact from "../data/allFirePerims.json";
 import currentPerims from "../data/firePerims_SMOOTHED.json";
 import allPerims from "../data/allFirePerims_SMOOTHED.json";
 import shelters from "../data/shelters.json";
-//https://hifld-geoplatform.hub.arcgis.com/datasets/geoplatform::national-shelter-system-facilities/about
 import createGraphHopper from "./customRouter.js";
 import * as turf from '@turf/turf';
 
