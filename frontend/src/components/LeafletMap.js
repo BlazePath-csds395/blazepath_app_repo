@@ -24,6 +24,8 @@ import allPerims from "../data/allFirePerims_SMOOTHED.json";
 import shelters from "../data/shelters.json";
 //https://hifld-geoplatform.hub.arcgis.com/datasets/geoplatform::national-shelter-system-facilities/about
 import createGraphHopper from "./customRouter.js";
+import * as turf from '@turf/turf';
+
 
 const startIcon = L.icon({
   iconUrl: "/marker_map_icon.png",
@@ -89,7 +91,7 @@ function getDistance(lat1, lon1, lat2, lon2) {
 }
 
 // Generate avoid polygons from all fire perimeters
-const generateFireAvoidPolygons = () => {
+const generateFireAvoidPolygonsOLD = () => {
   const avoidPolygons = {};
   
   // Add manual avoid area
@@ -111,9 +113,48 @@ const generateFireAvoidPolygons = () => {
   return avoidPolygons;
 };
 
+
+const generateFireAvoidPolygons = (start, end) => {
+  const avoidPolygons = {};
+
+  // Always include manual polygon
+  if (avoidPolygon) {
+    avoidPolygons.manual = avoidPolygon;
+  }
+
+  if (!currentPerims?.features?.length) return avoidPolygons;
+  
+  // Convert [lng, lat] for turf
+
+  const from = turf.point([Number(start.lng), Number(start.lat)]);
+  const to = turf.point([Number(end.lng), Number(end.lat)]);
+
+  const center = turf.midpoint(from, to);
+  
+  const maxDistance = 5 * turf.distance(from, to, { units: 'kilometers' });
+
+  
+  currentPerims.features.forEach((feature, index) => {
+    if (feature.geometry?.type === 'Polygon') {
+      const centroid = turf.centroid(feature);
+      const dist = turf.distance(center, centroid, { units: 'kilometers' });
+
+      if (dist <= maxDistance) {
+        const coords = feature.geometry.coordinates[0];
+        if (coords && coords.length > 2) {
+          avoidPolygons[`fire_${index}`] = coords;
+        }
+      }
+    }
+  });
+
+  return avoidPolygons;
+};
+
 // Generate avoid options for GraphHopper with all fire polygons
-const getAvoidOptions = () => {
-  const avoidPolygons = generateFireAvoidPolygons();
+const getAvoidOptions = (start, end) => {
+  
+  const avoidPolygons = generateFireAvoidPolygons(start, end);
   return {
     avoidPolygons: avoidPolygons
   };
@@ -157,8 +198,8 @@ const Routing = ({ start, end, onRouteCreated }) => {
       console.log("Using API key (first 4 chars):", apiKey ? apiKey.substring(0, 4) : 'none');
       
       // Get avoid options with all fire areas
-      const avoidOptions = getAvoidOptions();
-      
+      const avoidOptions = getAvoidOptions(start,end);
+      console.log(avoidOptions);
       // Create router with fire avoidance
       const router = apiKey ? 
         createGraphHopper(apiKey, {
@@ -842,7 +883,7 @@ const LeafletMap = ({
       )}
 
       <LayersControl position="topleft" collapsed={false}>
-        <LayersControl.Overlay name="Current Fires">
+        <LayersControl.Overlay checked name="Current Fires">
           <GeoJSON
             data={currentPerims_exact}
             style={{
@@ -855,7 +896,7 @@ const LeafletMap = ({
           />
         </LayersControl.Overlay>
 
-        <LayersControl.Overlay checked name="All 2025 Fires">
+        <LayersControl.Overlay name="All 2025 Fires">
           <GeoJSON
             data={allPerims_exact}
             style={{
@@ -868,7 +909,7 @@ const LeafletMap = ({
           />
         </LayersControl.Overlay>
 
-        <LayersControl.Overlay checked name="Avoid Area (Topanga)">
+        <LayersControl.Overlay name="Avoid Area (Topanga)">
           <GeoJSON
             data={avoidAreaGeoJSON}
             style={{
