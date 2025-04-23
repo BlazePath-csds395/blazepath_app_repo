@@ -17,8 +17,12 @@ import "lrm-graphhopper";
 import "../styles/LeafletMap.css";
 import "leaflet-draw/dist/leaflet.draw.css";
 import "leaflet-draw";
-import currentPerims from "../data/firePerims.json";
-import allPerims from "../data/allFirePerims.json";
+import currentPerims_exact from "../data/firePerims.json";
+import allPerims_exact from "../data/allFirePerims.json";
+import currentPerims from "../data/firePerims_SMOOTHED.json";
+import allPerims from "../data/allFirePerims_SMOOTHED.json";
+import shelters from "../data/shelters.json";
+//https://hifld-geoplatform.hub.arcgis.com/datasets/geoplatform::national-shelter-system-facilities/about
 import createGraphHopper from "./customRouter.js";
 
 const startIcon = L.icon({
@@ -840,7 +844,7 @@ const LeafletMap = ({
       <LayersControl position="topleft" collapsed={false}>
         <LayersControl.Overlay name="Current Fires">
           <GeoJSON
-            data={currentPerims}
+            data={currentPerims_exact}
             style={{
               fillColor: "#222222",
               color: "#111111",
@@ -853,7 +857,7 @@ const LeafletMap = ({
 
         <LayersControl.Overlay checked name="All 2025 Fires">
           <GeoJSON
-            data={allPerims}
+            data={allPerims_exact}
             style={{
               fillColor: "#1a1a1a",
               color: "#0f0f0f",
@@ -876,6 +880,16 @@ const LeafletMap = ({
             }}
             onEachFeature={(feature, layer) => {
               layer.bindPopup(feature.properties.name || "Avoid Area");
+            }}
+          />
+        </LayersControl.Overlay>
+
+        <LayersControl.Overlay name="Shelters">
+          <GeoJSON
+            data={shelters}
+            icon={startIcon}
+            onEachFeature={(feature, layer) => {
+              layer.bindPopup(feature.properties.name);
             }}
           />
         </LayersControl.Overlay>
