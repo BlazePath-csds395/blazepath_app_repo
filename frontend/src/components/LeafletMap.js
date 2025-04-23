@@ -131,7 +131,7 @@ const generateFireAvoidPolygons = (start, end) => {
 
   const center = turf.midpoint(from, to);
   
-  const maxDistance = 5 * turf.distance(from, to, { units: 'kilometers' });
+  const maxDistance = 3.5 * turf.distance(from, to, { units: 'kilometers' });
 
   
   currentPerims.features.forEach((feature, index) => {
