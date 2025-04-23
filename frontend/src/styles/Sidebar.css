@@ -4,6 +4,8 @@
     transition: width 0.3s ease;
     overflow: hidden;
     padding: 10px;
+    height: 100vh;
+    position: relative;
   }
   
   .sidebar.closed {
@@ -33,6 +35,9 @@
   
   .sidebar-content {
     padding: 10px;
+    height: calc(100% - 40px);
+    overflow-y: auto;
+    overflow-x: hidden;
   }
   
   .dropdown {
@@ -57,4 +62,80 @@
 
   .latlong-input:focus {
     border: 1px solid #555;
+  }
+
+  .address-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  /* New styles for mode toggles */
+  .mode-toggles {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+  }
+
+  .toggle-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+
+  .toggle-label input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+
+  .mode-info {
+    background-color: #f0f8ff;
+    border: 1px solid #b8d0e8;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  .mode-info p {
+    margin: 0 0 8px 0;
+  }
+
+  .mode-info ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  .mode-info li {
+    margin-bottom: 4px;
+  }
+
+  /* Show draw controls when in drawing mode */
+  body.draw-fire-mode .leaflet-draw-toolbar {
+    display: block;
+  }
+
+  .save-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 8px 12px;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    width: 100%;
+  }
+
+  .save-button:hover:not(:disabled) {
+    background-color: #388e3c;
+  }
+
+  .save-button:disabled {
+    background-color: #cccccc;
+    color: #888888;
+    cursor: not-allowed;
   }

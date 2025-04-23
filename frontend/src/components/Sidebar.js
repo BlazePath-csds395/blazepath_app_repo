@@ -10,6 +10,10 @@ const Sidebar = ({
   endLocation,
   enableAqiClick,
   setEnableAqiClick,
+  drawFireMode,
+  setDrawFireMode,
+  userReportedFires,
+  saveFiresToFile
 }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [selectedFactor, setSelectedFactor] = useState("");
@@ -104,6 +108,35 @@ const Sidebar = ({
     const factor = event.target.value;
     setSelectedFactor(factor);
     onSelectFactor(factor);
+  };
+
+  // Helper function to disable other modes when one is enabled
+  const toggleMode = (mode, setValue) => {
+    if (mode === 'aqi' && setValue) {
+      setDrawFireMode(false);
+    } else if (mode === 'drawFire' && setValue) {
+      setEnableAqiClick(false);
+    }
+  };
+
+  const handleAqiModeToggle = (e) => {
+    const newValue = e.target.checked;
+    setEnableAqiClick(newValue);
+    toggleMode('aqi', newValue);
+  };
+
+  const handleDrawFireModeToggle = (e) => {
+    const newValue = e.target.checked;
+    setDrawFireMode(newValue);
+    toggleMode('drawFire', newValue);
+    
+    // This will add a class to the body that our CSS can target
+    // to show/hide the draw controls
+    if (newValue) {
+      document.body.classList.add('draw-fire-mode');
+    } else {
+      document.body.classList.remove('draw-fire-mode');
+    }
   };
 
   return (
@@ -206,18 +239,53 @@ const Sidebar = ({
             Remove Route
           </button>
 
-          {/* ✅ AQI Click Mode Toggle */}
-          <div style={{ marginTop: "1.5em" }}>
-            <label
-              style={{ display: "flex", alignItems: "center", gap: "0.5em" }}
-            >
+          {/* Mode Toggles */}
+          <div className="mode-toggles" style={{ marginTop: "1.5em" }}>
+            <h3>Map Modes</h3>
+            
+            <label className="toggle-label">
               <input
                 type="checkbox"
                 checked={enableAqiClick}
-                onChange={(e) => setEnableAqiClick(e.target.checked)}
+                onChange={handleAqiModeToggle}
               />
               <span>Enable AQI Info Click Mode</span>
             </label>
+            
+            <label className="toggle-label">
+              <input
+                type="checkbox"
+                checked={drawFireMode}
+                onChange={handleDrawFireModeToggle}
+              />
+              <span>Report Fire Drawing Mode</span>
+            </label>
+
+            {drawFireMode && (
+              <div className="mode-info">
+                <p>Use the drawing tools on the map to:</p>
+                <ul>
+                  <li>Add a marker for a spot fire</li>
+                  <li>Draw a polygon around a fire area</li>
+                  <li>Draw a rectangle for a fire zone</li>
+                </ul>
+                <p>After drawing, your fire is automatically saved.</p>
+                <p><strong>Community Fire Reports:</strong> {userReportedFires ? userReportedFires.length : 0}</p>
+                
+                <button 
+                  onClick={saveFiresToFile} 
+                  className="save-button rounded-button"
+                  disabled={!userReportedFires || userReportedFires.length === 0}
+                  title="Download fire reports as JSON file"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                  </svg>
+                  &nbsp;Download Fire Reports
+                </button>
+              </div>
+            )}
           </div>
         </div>
       )}
