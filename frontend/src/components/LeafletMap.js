@@ -8,9 +8,12 @@ import {
   useMapEvents,
   GeoJSON,
   LayersControl,
+  LayerGroup,
+  CircleMarker
 } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+
 import "leaflet-routing-machine";
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 import "lrm-graphhopper";
@@ -25,6 +28,12 @@ import shelters from "../data/shelters.json";
 import createGraphHopper from "./customRouter.js";
 import * as turf from '@turf/turf';
 
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: '',
+  iconUrl: '',
+  shadowUrl: '',
+});
 
 const startIcon = L.icon({
   iconUrl: "/marker_map_icon.png",
@@ -50,29 +59,8 @@ const fireIcon = new L.Icon.Default({
   shadowSize: [123, 123]
 });
 
-const avoidPolygon = [
-  [-118.7, 34.02],
-  [-118.7, 34.1],
-  [-118.5, 34.1],
-  [-118.5, 34.02],
-  [-118.7, 34.02],
-];
 
-const avoidAreaGeoJSON = {
-  type: "FeatureCollection",
-  features: [
-    {
-      type: "Feature",
-      geometry: {
-        type: "Polygon",
-        coordinates: [avoidPolygon],
-      },
-      properties: {
-        name: "Avoid Area (Topanga/Malibu)",
-      },
-    },
-  ],
-};
+
 
 function getDistance(lat1, lon1, lat2, lon2) {
   const R = 6371e3;
@@ -89,37 +77,9 @@ function getDistance(lat1, lon1, lat2, lon2) {
   return R * c;
 }
 
-// Generate avoid polygons from all fire perimeters
-const generateFireAvoidPolygonsOLD = () => {
-  const avoidPolygons = {};
-  
-  // Add manual avoid area
-  avoidPolygons.manual = avoidPolygon;
-  
-  // Process fire data from currentPerims
-  if (currentPerims && currentPerims.features) {
-    currentPerims.features.forEach((feature, index) => {
-      if (feature.geometry && feature.geometry.type === 'Polygon' && feature.geometry.coordinates) {
-        // Convert coordinates to [lng, lat] format required by GraphHopper
-        const coords = feature.geometry.coordinates[0];
-        if (coords && coords.length > 2) {
-          avoidPolygons[`fire_${index}`] = coords;
-        }
-      }
-    });
-  }
-  
-  return avoidPolygons;
-};
-
 
 const generateFireAvoidPolygons = (start, end) => {
   const avoidPolygons = {};
-
-  // Always include manual polygon
-  if (avoidPolygon) {
-    avoidPolygons.manual = avoidPolygon;
-  }
 
   if (!currentPerims?.features?.length) return avoidPolygons;
   
@@ -255,6 +215,7 @@ const Routing = ({ start, end, onRouteCreated }) => {
       console.error("Error setting up routing:", error);
       // Fallback to standard routing if GraphHopper fails
       try {
+        alert("Query failed -- using default routing.\nThis is likely because the distance between your points was too large.\nPlease use our service only for short distances!");
         const control = L.Routing.control({
           waypoints: [L.latLng(start.lat, start.lng), L.latLng(end.lat, end.lng)],
           createMarker: function (i, waypoint, n) {
@@ -677,6 +638,11 @@ function onEachFeature(feature, layer) {
     layer.bindPopup(feature.properties.poly_IncidentName);
   }
 }
+function onEachFeatureShelter(feature, layer) {
+  if (feature.properties && feature.properties.shelter_name) {
+    layer.bindPopup(feature.properties.shelter_name);
+  }
+}
 
 function onEachUserFire(feature, layer) {
   if (feature.properties) {
@@ -725,6 +691,9 @@ const LeafletMap = ({
 }) => {
   const [clickedPoint, setClickedPoint] = useState(null);
   const markerRef = useRef(null);
+
+
+  
 
   // Set global function for endorsement buttons in popups
   useEffect(() => {
@@ -821,6 +790,7 @@ const LeafletMap = ({
     }
   }, [clickedPoint]);
 
+
   return (
     <MapContainer
       center={[33.9506, -118.1142]}
@@ -897,6 +867,7 @@ const LeafletMap = ({
 
         <LayersControl.Overlay name="All 2025 Fires">
           <GeoJSON
+            attribution="WFIGS"
             data={allPerims_exact}
             style={{
               fillColor: "#1a1a1a",
@@ -908,30 +879,29 @@ const LeafletMap = ({
           />
         </LayersControl.Overlay>
 
-        <LayersControl.Overlay name="Avoid Area (Topanga)">
-          <GeoJSON
-            data={avoidAreaGeoJSON}
-            style={{
-              color: "#FF0000",
-              fillColor: "#FF6666",
-              fillOpacity: 0.4,
-              weight: 2,
-              dashArray: "5, 5",
-            }}
-            onEachFeature={(feature, layer) => {
-              layer.bindPopup(feature.properties.name || "Avoid Area");
-            }}
-          />
-        </LayersControl.Overlay>
-
         <LayersControl.Overlay name="Shelters">
-          <GeoJSON
-            data={shelters}
-            icon={startIcon}
-            onEachFeature={(feature, layer) => {
-              layer.bindPopup(feature.properties.name);
-            }}
-          />
+          <LayerGroup>
+            {shelters.features.map((feature, index) => {
+              const [lng, lat] = feature.geometry.coordinates;
+              const name = feature.properties.shelter_name;
+
+              return (
+                <CircleMarker
+                  key={index}
+                  center={[lat, lng]}
+                  radius={2}
+                  pathOptions={{
+                    fillColor: "#ffffff",
+                    color: "#0f0f0f",
+                    fillOpacity: 0.75,
+                    weight: 1,
+                  }}
+                >
+                  <Popup>{name}</Popup>
+                </CircleMarker>
+              );
+            })}
+          </LayerGroup>
         </LayersControl.Overlay>
 
         {userReportedFires && userReportedFires.length > 0 && (
