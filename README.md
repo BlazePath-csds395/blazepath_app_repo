@@ -2,9 +2,14 @@
 
 ## install
 
+use --force if necessary. There are no conflicts, but some of the libraries haven't been updated recently.
+
 ```sh
 npm install react-leaflet leaflet
 npm install leaflet@latest
+npm install leaflet-routing-machine
+npm install @turf/turf
+npm install react-leaflet-draw
 ```
 
 
