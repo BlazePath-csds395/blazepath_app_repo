@@ -79,10 +79,13 @@ Fire reports are stored in a GeoJSON file on the backend server at `backend/data
 # frontend
 
 ## install
-
+use --force if necessary. 
 ```sh
 npm install react-leaflet leaflet
 npm install leaflet@latest
+npm install leaflet-routing-machine
+npm install @turf/turf
+npm install react-leaflet-draw
 ```
 
 
