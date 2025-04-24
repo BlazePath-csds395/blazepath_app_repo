@@ -1,5 +1,4 @@
 var L = require("leaflet");
-var corslite = require("corslite");
 var polyline = require("polyline");
 
 L.Routing = L.Routing || {};

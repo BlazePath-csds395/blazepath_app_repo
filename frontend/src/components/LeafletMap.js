@@ -638,11 +638,7 @@ function onEachFeature(feature, layer) {
     layer.bindPopup(feature.properties.poly_IncidentName);
   }
 }
-function onEachFeatureShelter(feature, layer) {
-  if (feature.properties && feature.properties.shelter_name) {
-    layer.bindPopup(feature.properties.shelter_name);
-  }
-}
+
 
 function onEachUserFire(feature, layer) {
   if (feature.properties) {
@@ -856,9 +852,9 @@ const LeafletMap = ({
           <GeoJSON
             data={currentPerims_exact}
             style={{
-              fillColor: "#222222",
+              fillColor: "#FF0000",
               color: "#111111",
-              fillOpacity: 0.6,
+              fillOpacity: 0.75,
               weight: 1,
             }}
             onEachFeature={onEachFeature}
@@ -870,7 +866,7 @@ const LeafletMap = ({
             attribution="WFIGS"
             data={allPerims_exact}
             style={{
-              fillColor: "#1a1a1a",
+              fillColor: "#FFFF00",
               color: "#0f0f0f",
               fillOpacity: 0.75,
               weight: 1,
@@ -883,13 +879,13 @@ const LeafletMap = ({
           <LayerGroup>
             {shelters.features.map((feature, index) => {
               const [lng, lat] = feature.geometry.coordinates;
-              const name = feature.properties.shelter_name;
+              
 
               return (
                 <CircleMarker
                   key={index}
                   center={[lat, lng]}
-                  radius={2}
+                  radius={3}
                   pathOptions={{
                     fillColor: "#ffffff",
                     color: "#0f0f0f",
@@ -897,7 +893,19 @@ const LeafletMap = ({
                     weight: 1,
                   }}
                 >
-                  <Popup>{name}</Popup>
+                  <Popup>
+                    <strong>Shelter Name</strong>
+                    <br/>
+                    {feature.properties.shelter_name}
+                    <br/>
+                    <strong>Address</strong>
+                    <br/>
+                    {feature.properties.address_1}
+                    <br/>
+                    {feature.properties.city + ", "+ feature.properties.state}
+                    <br/>
+                    {feature.properties.zip}
+                  </Popup>
                 </CircleMarker>
               );
             })}

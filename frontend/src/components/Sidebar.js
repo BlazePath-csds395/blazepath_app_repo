@@ -149,66 +149,7 @@ const Sidebar = ({
       </button>
       {isOpen && (
         <div className="sidebar-content">
-          <h3>Select Factor</h3>
-          <select
-            value={selectedFactor}
-            onChange={handleFactorChange}
-            className="dropdown"
-          >
-            <option value="" disabled>
-              Select a factor
-            </option>
-            {factors.map((factor) => (
-              <option key={factor} value={factor}>
-                {factor}
-              </option>
-            ))}
-          </select>
-
-          <h3>Start Location</h3>
-          <input
-            className="latlong-input"
-            type="number"
-            placeholder="Start Latitude"
-            value={startLat != "" ? Math.round(startLat * 10000) / 10000 : ""}
-            onChange={(e) => setStartLat(e.target.value)}
-          />
-          <input
-            className="latlong-input"
-            type="number"
-            placeholder="Start Longitude"
-            value={startLng != "" ? Math.round(startLng * 10000) / 10000 : ""}
-            onChange={(e) => setStartLng(e.target.value)}
-          />
-          <br />
-          <button
-            onClick={handleSetStartLocation}
-            className="input-button rounded-button"
-          >
-            Set Start
-          </button>
-
-          <h3>End Location</h3>
-          <input
-            className="latlong-input"
-            type="number"
-            placeholder="End Latitude"
-            value={endLat != "" ? Math.round(endLat * 10000) / 10000 : ""}
-            onChange={(e) => setEndLat(e.target.value)}
-          />
-          <input
-            className="latlong-input"
-            type="number"
-            placeholder="End Longitude"
-            value={endLng != "" ? Math.round(endLng * 10000) / 10000 : ""}
-            onChange={(e) => setEndLng(e.target.value)}
-          />
-          <button
-            onClick={handleSetEndLocation}
-            className="input-button rounded-button"
-          >
-            Set End
-          </button>
+          
           <h3>Enter Start & Destination</h3>
           <input
             type="text"
@@ -287,10 +228,60 @@ const Sidebar = ({
               </div>
             )}
           </div>
+
+          
+          
         </div>
       )}
     </div>
   );
 };
 
+
+/* currently unused latitude stuff
+<h3>Start Location</h3>
+          <input
+            className="latlong-input"
+            type="number"
+            placeholder="Start Latitude"
+            value={startLat != "" ? Math.round(startLat * 10000) / 10000 : ""}
+            onChange={(e) => setStartLat(e.target.value)}
+          />
+          <input
+            className="latlong-input"
+            type="number"
+            placeholder="Start Longitude"
+            value={startLng != "" ? Math.round(startLng * 10000) / 10000 : ""}
+            onChange={(e) => setStartLng(e.target.value)}
+          />
+          <br />
+          <button
+            onClick={handleSetStartLocation}
+            className="input-button rounded-button"
+          >
+            Set Start
+          </button>
+
+          <h3>End Location</h3>
+          <input
+            className="latlong-input"
+            type="number"
+            placeholder="End Latitude"
+            value={endLat != "" ? Math.round(endLat * 10000) / 10000 : ""}
+            onChange={(e) => setEndLat(e.target.value)}
+          />
+          <input
+            className="latlong-input"
+            type="number"
+            placeholder="End Longitude"
+            value={endLng != "" ? Math.round(endLng * 10000) / 10000 : ""}
+            onChange={(e) => setEndLng(e.target.value)}
+          />
+          <button
+            onClick={handleSetEndLocation}
+            className="input-button rounded-button"
+          >
+            Set End
+          </button>
+*/
 export default Sidebar;
