@@ -11,7 +11,7 @@ import {
   LayerGroup,
   CircleMarker
 } from "react-leaflet";
-import L from "leaflet";
+import L, { Layer } from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 import "leaflet-routing-machine";
@@ -26,7 +26,9 @@ import currentPerims from "../data/firePerims_SMOOTHED.json";
 import allPerims from "../data/allFirePerims_SMOOTHED.json";
 import shelters from "../data/shelters.json";
 import createGraphHopper from "./customRouter.js";
+import HeatmapLayer from "./HeatmapLayer.js";
 import * as turf from '@turf/turf';
+import { heatData } from '../data/heatData';
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -976,7 +978,7 @@ const LeafletMap = ({
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution="&copy; OpenStreetMap contributors"
       />
-
+      
       <ClickHandler
         enableAqiClick={enableAqiClick}
         aqiData={aqiData}
@@ -1054,6 +1056,12 @@ const LeafletMap = ({
           />
         </LayersControl.Overlay>
 
+        <LayersControl.Overlay name="Fire Prediction">
+          <LayerGroup>
+            <HeatmapLayer points={heatData} />
+          </LayerGroup>
+        </LayersControl.Overlay>
+
         <LayersControl.Overlay name="Shelters">
           <LayerGroup>
             {shelters.features.map((feature, index) => {
@@ -1091,6 +1099,7 @@ const LeafletMap = ({
           </LayerGroup>
         </LayersControl.Overlay>
 
+        
         {userReportedFires && userReportedFires.length > 0 && (
           <LayersControl.Overlay checked name="User Reported Fires">
             <GeoJSON

@@ -86,6 +86,7 @@ npm install leaflet@latest
 npm install leaflet-routing-machine
 npm install @turf/turf
 npm install react-leaflet-draw
+npm install leaflet.heat
 ```
 
 

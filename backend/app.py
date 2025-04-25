@@ -17,6 +17,9 @@ JSONBIN_HEADERS = {
     "Content-Type": "application/json"
 }
 
+
+
+
 def load_geojson():
     try:
         res = requests.get(JSONBIN_URL, headers=JSONBIN_HEADERS)
@@ -77,6 +80,10 @@ def update_fire(fire_id):
 def download_fires():
     geojson_data = load_geojson()
     return jsonify(geojson_data)  # Optionally format as attachment with Flask send_file alternative
+
+@app.route('/ping')
+def ping():
+    return "pong"
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
