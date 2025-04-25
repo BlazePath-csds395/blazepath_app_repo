@@ -6,7 +6,7 @@ import time
 from datetime import datetime
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 
 # ENV variables you must set in Railway
 JSONBIN_BIN_ID = os.environ.get("JSONBIN_BIN_ID")
