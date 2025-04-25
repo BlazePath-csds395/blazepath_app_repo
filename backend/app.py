@@ -9,7 +9,7 @@ app = Flask(__name__)
 CORS(app)
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data')
-GEOJSON_FILE = os.path.join(DATA_DIR, 'user_reported_fires.geojson')
+GEOJSON_FILE = os.path.join(DATA_DIR, 'user_reported_fires.json')
 
 os.makedirs(DATA_DIR, exist_ok=True)
 
@@ -93,7 +93,7 @@ def update_fire(fire_id):
 def download_fires():
     """Endpoint to download the full GeoJSON file"""
     return send_file(GEOJSON_FILE, mimetype='application/json', as_attachment=True, 
-                     download_name=f'fire_reports_{datetime.now().strftime("%Y%m%d_%H%M%S")}.geojson')
+                     download_name=f'fire_reports_{datetime.now().strftime("%Y%m%d_%H%M%S")}.json')
 
 
 if __name__ == '__main__':
