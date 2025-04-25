@@ -591,7 +591,7 @@ const DrawControl = ({ drawFireMode, onFireReported }) => {
           const rawGeoJSON = tempLayerRef.current.toGeoJSON();
           
           // Round the coordinates to 2 decimal places explicitly
-          const geoJSON = roundCoordinates(rawGeoJSON, 2);
+          const geoJSON = roundCoordinates(rawGeoJSON, 5);
           
           // Add metadata to the GeoJSON
           geoJSON.properties = {
