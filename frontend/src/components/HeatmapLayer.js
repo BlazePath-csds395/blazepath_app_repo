@@ -28,13 +28,13 @@ const HeatmapLayer = ({ points }) => {
       const zoom = map.getZoom();
 
       // ⬇️ Downsample more at low zoom
-      const factor = zoom < 7 ? 30 : zoom < 9 ? 3 : 1;
+      const factor = zoom < 5 ? 5 : zoom < 9 ? 3 : 1;
       const visiblePoints = points.filter((_, i) => i % factor === 0);
 
       // 🎛️ Zoom-responsive style
-      const minOpacity = zoom < 7 ? 0.15 : Math.min(1.0, (zoom - 6) / 7);     // 0.05–1
-      const radius = zoom < 7 ? 4 : Math.min(30, zoom * 2);                   // 4–26
-      const blur = zoom < 7 ? 30 : zoom < 10 ? 20 : 10;                       // 30→20→10
+      const minOpacity = zoom < 5 ? 0.15 : Math.min(1.0, (zoom - 6) / 7);     // 0.05–1
+      const radius = zoom < 5 ? 4 : Math.min(30, zoom * 2);                   // 4–26
+      const blur = zoom < 5 ? 30 : zoom < 10 ? 20 : 10;                       // 30→20→10
 
       // Refresh the layer
       heat.setLatLngs([]);
