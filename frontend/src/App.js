@@ -6,7 +6,7 @@ import aqiCsv from "./data/aqi_dataset.csv"; // ✅ your file
 import "./styles/App.css";
 
 // API base URL for the backend
-const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+const API_BASE_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:5000";
 
 const App = () => {
   const [selectedFactor, setSelectedFactor] = useState(null);

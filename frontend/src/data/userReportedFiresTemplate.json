@@ -1,0 +1,47 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "example123",
+        "description": "Example fire",
+        "timestamp": "2025-04-22T23:45:00Z",
+        "reporter": "anonymous",
+        "votes": {
+          "up": 5,
+          "down": 1
+        }
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-118.5, 34.0],
+            [-118.4, 34.0],
+            [-118.4, 34.1],
+            [-118.5, 34.1],
+            [-118.5, 34.0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "example456",
+        "description": "Example spot fire",
+        "timestamp": "2025-04-22T23:40:00Z",
+        "reporter": "anonymous",
+        "votes": {
+          "up": 3,
+          "down": 0
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-118.3, 34.05]
+      }
+    }
+  ]
+} 

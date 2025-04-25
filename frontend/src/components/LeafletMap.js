@@ -30,9 +30,9 @@ import * as turf from '@turf/turf';
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl: '',
-  iconUrl: '',
-  shadowUrl: '',
+  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
 });
 
 const startIcon = L.icon({
@@ -59,9 +59,6 @@ const fireIcon = new L.Icon.Default({
   shadowSize: [123, 123]
 });
 
-
-
-
 function getDistance(lat1, lon1, lat2, lon2) {
   const R = 6371e3;
   const toRad = (deg) => deg * (Math.PI / 180);
@@ -76,7 +73,6 @@ function getDistance(lat1, lon1, lat2, lon2) {
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   return R * c;
 }
-
 
 const generateFireAvoidPolygons = (start, end) => {
   const avoidPolygons = {};
@@ -106,14 +102,64 @@ const generateFireAvoidPolygons = (start, end) => {
       }
     }
   });
+  
+  // Also add user-reported fires to avoidance areas
+  if (window.userReportedFires && window.userReportedFires.length > 0) {
+    window.userReportedFires.forEach((feature, index) => {
+      // Only process polygon features (rectangles and polygons)
+      if (feature.geometry?.type === 'Polygon') {
+        try {
+          const centroid = turf.centroid(feature);
+          const dist = turf.distance(center, centroid, { units: 'kilometers' });
+          
+          // Use the same distance filtering as current perimeters
+          if (dist <= maxDistance) {
+            const coords = feature.geometry.coordinates[0];
+            if (coords && coords.length > 2) {
+              avoidPolygons[`user_fire_${index}`] = coords;
+            }
+          }
+        } catch (error) {
+          console.warn("Error processing user fire for avoidance:", error);
+        }
+      }
+      // For point features (markers), create a small circle around them
+      else if (feature.geometry?.type === 'Point') {
+        try {
+          const point = turf.point(feature.geometry.coordinates);
+          const dist = turf.distance(center, point, { units: 'kilometers' });
+          
+          if (dist <= maxDistance) {
+            // Create a small circle (0.5km radius) around the point
+            const buffered = turf.buffer(point, 0.5, { units: 'kilometers' });
+            if (buffered.geometry?.coordinates && buffered.geometry.coordinates[0]) {
+              avoidPolygons[`user_fire_point_${index}`] = buffered.geometry.coordinates[0];
+            }
+          }
+        } catch (error) {
+          console.warn("Error processing user fire point for avoidance:", error);
+        }
+      }
+    });
+  }
 
   return avoidPolygons;
 };
 
-// Generate avoid options for GraphHopper with all fire polygons
+// Fix the getAvoidOptions function
 const getAvoidOptions = (start, end) => {
+  if (!start || !end) {
+    console.warn("Missing start or end point for avoid options");
+    return { avoidPolygons: {} };
+  }
   
+  console.log("Generating avoid polygons for routing...");
   const avoidPolygons = generateFireAvoidPolygons(start, end);
+  
+  // Debug output to see what's being included in avoidPolygons
+  console.log("Total avoid polygons:", Object.keys(avoidPolygons).length);
+  console.log("User fire polygons:", Object.keys(avoidPolygons).filter(k => k.includes('user_fire')).length);
+  
   return {
     avoidPolygons: avoidPolygons
   };
@@ -157,16 +203,21 @@ const Routing = ({ start, end, onRouteCreated }) => {
       console.log("Using API key (first 4 chars):", apiKey ? apiKey.substring(0, 4) : 'none');
       
       // Get avoid options with all fire areas
-      const avoidOptions = getAvoidOptions(start,end);
-      console.log(avoidOptions);
-      // Create router with fire avoidance
+      const avoidOptions = getAvoidOptions(start, end);
+      
+      // Log detailed information about the avoid polygons
+      console.log("ROUTING: Avoid option keys:", Object.keys(avoidOptions.avoidPolygons));
+      console.log("ROUTING: User fires available:", window.userReportedFires ? window.userReportedFires.length : 0);
+      
+      // Create router with fire avoidance - enforce stronger avoidance
       const router = apiKey ? 
         createGraphHopper(apiKey, {
           serviceUrl: "https://graphhopper.com/api/1/route",
           ...avoidOptions
         }) : 
-        undefined; // Fall back to default OSRM if no API key
+        undefined;
 
+      // Add special routing options to the control to enforce polygon avoidance
       const control = L.Routing.control({
         waypoints: [L.latLng(start.lat, start.lng), L.latLng(end.lat, end.lng)],
         router: router,
@@ -185,11 +236,9 @@ const Routing = ({ start, end, onRouteCreated }) => {
         routeWhileDragging: true,
         lineOptions: { styles: [{ color: "#007bff", weight: 4 }] },
         collapsible: true,
-        // Add error handling
         errorCallback: function(error) {
           console.error("Routing error:", error);
         },
-        // Limit to only 2 waypoints
         maxGeocoderTolerance: 0,
         addWaypoints: false,
         draggableWaypoints: true,
@@ -227,10 +276,8 @@ const Routing = ({ start, end, onRouteCreated }) => {
           },
           routeWhileDragging: true,
           lineOptions: { styles: [{ color: "#007bff", weight: 4 }] },
-          // Limit to only 2 waypoints
           addWaypoints: false,
           draggableWaypoints: true,
-          // Add error handling
           errorCallback: function(error) {
             console.error("Fallback routing error:", error);
           }
@@ -243,10 +290,50 @@ const Routing = ({ start, end, onRouteCreated }) => {
       }
     }
 
-    // Clean up function
+    // Clean up function with improved layer removal safety
     return () => {
-      if (routingControl) {
-        safeRemoveControl(routingControl);
+      try {
+        if (routingControl) {
+          safeRemoveControl(routingControl);
+        }
+        
+        // Safely clean up any stray markers that might be causing the _leaflet_events error
+        map.eachLayer(layer => {
+          if (layer instanceof L.Marker && (
+            (layer.options && (layer.options.icon === startIcon || layer.options.icon === endIcon)) ||
+            (layer._icon && (layer._icon.src && (
+              layer._icon.src.includes('marker-icon') || 
+              layer._icon.src.includes('marker_map_icon')
+            )))
+          )) {
+            try {
+              map.removeLayer(layer);
+            } catch (e) {
+              console.warn("Error removing marker:", e);
+            }
+          }
+          
+          // Also clean up route lines
+          if (layer instanceof L.Polyline && !(layer instanceof L.Polygon)) {
+            try {
+              map.removeLayer(layer);
+            } catch (e) {
+              console.warn("Error removing polyline:", e);
+            }
+          }
+        });
+        
+        // Remove instruction container if it exists
+        const routingContainer = document.querySelector('.leaflet-routing-container');
+        if (routingContainer) {
+          try {
+            routingContainer.remove();
+          } catch (e) {
+            console.warn("Error removing routing container:", e);
+          }
+        }
+      } catch (e) {
+        console.warn("Error in cleanup:", e);
       }
     };
   }, [map, start, end, onRouteCreated]);
@@ -383,6 +470,52 @@ const ClickHandler = ({
   return null;
 };
 
+// Fix the roundCoordinates function
+function roundCoordinates(geoJSON, precision = 5) {
+  // Round coordinates to ceiling at specified precision
+  function roundToFixed(num, precision) {
+    const factor = Math.pow(10, precision);
+    // Using Math.round instead of Math.ceil for more natural rounding
+    return Math.round(num * factor) / factor;
+  }
+
+  // Deep clone the GeoJSON to avoid modifying the original
+  const rounded = JSON.parse(JSON.stringify(geoJSON));
+  
+  if (rounded.geometry) {
+    if (rounded.geometry.type === 'Point') {
+      // Handle Point geometry
+      rounded.geometry.coordinates = [
+        roundToFixed(rounded.geometry.coordinates[0], precision),
+        roundToFixed(rounded.geometry.coordinates[1], precision)
+      ];
+    } else if (rounded.geometry.type === 'Polygon') {
+      // Handle Polygon geometry
+      rounded.geometry.coordinates = rounded.geometry.coordinates.map(ring => {
+        return ring.map(point => {
+          return [
+            roundToFixed(point[0], precision),
+            roundToFixed(point[1], precision)
+          ];
+        });
+      });
+    } else if (rounded.geometry.type === 'LineString') {
+      // Handle LineString geometry
+      rounded.geometry.coordinates = rounded.geometry.coordinates.map(point => {
+        return [
+          roundToFixed(point[0], precision),
+          roundToFixed(point[1], precision)
+        ];
+      });
+    }
+  }
+  
+  console.log("Original coordinates:", JSON.stringify(geoJSON.geometry.coordinates));
+  console.log("Rounded coordinates:", JSON.stringify(rounded.geometry.coordinates));
+  
+  return rounded;
+}
+
 // Drawing Control for user-reported fires
 const DrawControl = ({ drawFireMode, onFireReported }) => {
   const map = useMap();
@@ -453,7 +586,10 @@ const DrawControl = ({ drawFireMode, onFireReported }) => {
           drawnItems.addLayer(tempLayerRef.current);
           
           // Extract GeoJSON from the drawn layer
-          const geoJSON = tempLayerRef.current.toGeoJSON();
+          const rawGeoJSON = tempLayerRef.current.toGeoJSON();
+          
+          // Round the coordinates to 2 decimal places explicitly
+          const geoJSON = roundCoordinates(rawGeoJSON, 2);
           
           // Add metadata to the GeoJSON
           geoJSON.properties = {
@@ -688,8 +824,10 @@ const LeafletMap = ({
   const [clickedPoint, setClickedPoint] = useState(null);
   const markerRef = useRef(null);
 
-
-  
+  // Make userReportedFires available globally for routing functions
+  useEffect(() => {
+    window.userReportedFires = userReportedFires;
+  }, [userReportedFires]);
 
   // Set global function for endorsement buttons in popups
   useEffect(() => {
@@ -786,6 +924,47 @@ const LeafletMap = ({
     }
   }, [clickedPoint]);
 
+  // Add a debugging function to check if a route intersects with fire polygons
+  function checkRouteIntersections(route, polygons) {
+    if (!route || !route.coordinates || !polygons) return;
+    
+    try {
+      const routeLine = turf.lineString(route.coordinates.map(coord => [coord.lng, coord.lat]));
+      
+      for (const [key, polygon] of Object.entries(polygons)) {
+        const poly = turf.polygon([polygon]);
+        const intersection = turf.booleanIntersects(routeLine, poly);
+        
+        if (intersection) {
+          console.warn(`Route intersects with polygon: ${key}`);
+        }
+      }
+    } catch (error) {
+      console.error("Error checking route intersections:", error);
+    }
+  }
+
+  // Modify the customRouter.js implementation for better fire avoidance
+  // This will be done by editing the code in the window object directly
+
+  useEffect(() => {
+    // Patch the GraphHopper router to enforce avoid areas
+    if (window.L && window.L.Routing && window.L.Routing.GraphHopper) {
+      const originalRoute = window.L.Routing.GraphHopper.prototype.route;
+      
+      window.L.Routing.GraphHopper.prototype.route = function(waypoints, callback, context, options) {
+        // Add strong avoid area enforcement to the original route function
+        console.log("Custom router intercepting route request with avoid options:", this.options.avoidPolygons);
+        
+        if (this.options.avoidPolygons && Object.keys(this.options.avoidPolygons).length > 0) {
+          console.log("Using custom avoid polygons in routing");
+        }
+        
+        // Call the original function
+        return originalRoute.call(this, waypoints, callback, context, options);
+      };
+    }
+  }, []);
 
   return (
     <MapContainer

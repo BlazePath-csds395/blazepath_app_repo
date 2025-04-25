@@ -1,0 +1,235 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.5,
+          34.0
+        ]
+      },
+      "properties": {
+        "name": "Test Fire",
+        "reportedBy": "user",
+        "timestamp": "2025-04-24T20:21:09.550022",
+        "endorsements": 0,
+        "rejections": 0
+      },
+      "id": "fire-1745540469-7296136534409589326"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "reportedBy": "user",
+        "timestamp": "2025-04-25T00:24:08.210Z",
+        "verified": false,
+        "endorsements": 0,
+        "rejections": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -117.543428,
+              33.915443
+            ],
+            [
+              -117.518018,
+              33.900627
+            ],
+            [
+              -117.518018,
+              33.927409
+            ],
+            [
+              -117.543428,
+              33.915443
+            ]
+          ]
+        ]
+      },
+      "id": "fire-1745540648210-g9np4eql9"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "reportedBy": "user",
+        "timestamp": "2025-04-25T00:26:57.547Z",
+        "verified": false,
+        "endorsements": 0,
+        "rejections": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -117.80782,
+              33.86244
+            ],
+            [
+              -117.80782,
+              33.87156
+            ],
+            [
+              -117.77966,
+              33.87156
+            ],
+            [
+              -117.77966,
+              33.86244
+            ],
+            [
+              -117.80782,
+              33.86244
+            ]
+          ]
+        ]
+      },
+      "id": "fire-1745540817547-fqvffrl30"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "reportedBy": "user",
+        "timestamp": "2025-04-25T00:27:30.945Z",
+        "verified": false,
+        "endorsements": 0,
+        "rejections": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -117.61278,
+              33.88524
+            ],
+            [
+              -117.61278,
+              33.89379
+            ],
+            [
+              -117.58944,
+              33.89379
+            ],
+            [
+              -117.58944,
+              33.88524
+            ],
+            [
+              -117.61278,
+              33.88524
+            ]
+          ]
+        ]
+      },
+      "id": "fire-1745540850945-f6wrisb8t"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "reportedBy": "user",
+        "timestamp": "2025-04-25T00:28:49.564Z",
+        "verified": false,
+        "endorsements": 0,
+        "rejections": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -117.91,
+              33.82
+            ],
+            [
+              -117.86,
+              33.8
+            ],
+            [
+              -117.88,
+              33.83
+            ],
+            [
+              -117.91,
+              33.82
+            ]
+          ]
+        ]
+      },
+      "id": "fire-1745540929564-amhdqqgjk"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "reportedBy": "user",
+        "timestamp": "2025-04-25T00:30:30.697Z",
+        "verified": false,
+        "endorsements": 0,
+        "rejections": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -117.94,
+              33.89
+            ],
+            [
+              -117.95,
+              33.86
+            ],
+            [
+              -117.89,
+              33.86
+            ],
+            [
+              -117.94,
+              33.89
+            ]
+          ]
+        ]
+      },
+      "id": "fire-1745541030697-im2dn4fhz"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "reportedBy": "user",
+        "timestamp": "2025-04-25T00:36:47.566Z",
+        "verified": false,
+        "endorsements": 0,
+        "rejections": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -117.87,
+              33.9
+            ],
+            [
+              -117.86,
+              33.88
+            ],
+            [
+              -117.84,
+              33.88
+            ],
+            [
+              -117.87,
+              33.9
+            ]
+          ]
+        ]
+      },
+      "id": "fire-1745541407566-6h907itgl"
+    }
+  ]
+}
