@@ -1,0 +1,65 @@
+.vote-button {
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.vote-button:hover {
+  background-color: #e8e8e8;
+}
+
+.leaflet-draw-toolbar .leaflet-draw-draw-marker {
+  background-position: -144px -2px;
+}
+
+/* Custom style for the draw control */
+.leaflet-draw-tooltip {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+/* Style for fire popups */
+.leaflet-popup-content h4 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+}
+
+.leaflet-popup-content label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.leaflet-popup-content input {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.leaflet-popup-content button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.leaflet-popup-content button:hover {
+  background-color: #45a049;
+} 

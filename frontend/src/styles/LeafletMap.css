@@ -23,3 +23,98 @@
     cursor: pointer;
   }
   
+/* Styles for user-reported fires and the drawing tools */
+
+/* Style for endorsement buttons in popups */
+.endorsement-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.endorse-btn, .reject-btn {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 1rem;
+}
+
+.endorse-btn:hover {
+  background-color: #c8f7c5;
+}
+
+.reject-btn:hover {
+  background-color: #ffd1d1;
+}
+
+/* Override leaflet-draw styles */
+.leaflet-draw-toolbar a {
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+}
+
+.leaflet-draw-toolbar a:hover {
+  background-color: #f4f4f4;
+}
+
+.leaflet-draw-actions {
+  left: 38px;
+}
+
+.leaflet-draw-actions a {
+  font-size: 14px;
+  background-color: white;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin-top: 3px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+  transition: background-color 0.2s;
+}
+
+.leaflet-draw-actions a:hover {
+  background-color: #f4f4f4;
+  color: #000;
+}
+
+/* Style for user reported fire markers and polygons */
+.user-fire-marker {
+  filter: drop-shadow(0 0 5px #ff5722);
+}
+
+.user-fire-polygon {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+.leaflet-draw-toolbar {
+  margin-top: 0 !important;
+}
+
+.leaflet-draw {
+  position: absolute;
+  top: 65px;
+  right: 10px;
+  z-index: 1000;
+}
+
+body:not(.draw-fire-mode) .leaflet-draw {
+  display: none;
+}
+  
